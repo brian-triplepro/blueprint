@@ -7,6 +7,31 @@
 
 @use '_block-render';
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.wp-block {
+    max-width: 100%;
+}
+
+.container {
+    max-width: var(--content-width, 1280px);
+    margin: 0 auto;
+}
+
+section {
+    padding: 100px 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-img, 0);
+}
+
 body {
     font-family: var(--font-body);
     font-size: var(--font-body-size);

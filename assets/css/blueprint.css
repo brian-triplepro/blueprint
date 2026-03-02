@@ -1,30 +1,4 @@
 @charset "UTF-8";
-/* --- Base Styles --- */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.wp-block {
-  max-width: 100%;
-}
-
-.container {
-  max-width: var(--content-width, 1280px);
-  margin: 0 auto;
-}
-
-section {
-  padding: 100px 20px;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--border-radius-img, 0);
-}
-
 /* --- Colors --- */
 .bg-primary {
   background-color: var(--color-primary);
@@ -176,6 +150,31 @@ img {
  * @package Blueprint
  * @since 0.0.1
  */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.wp-block {
+  max-width: 100%;
+}
+
+.container {
+  max-width: var(--content-width, 1280px);
+  margin: 0 auto;
+}
+
+section {
+  padding: 100px 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-img, 0);
+}
+
 body {
   font-family: var(--font-body);
   font-size: var(--font-body-size);

@@ -39,7 +39,7 @@ function blueprint_enqueue_scripts() {
 
     blueprint_enqueue_google_fonts();
     wp_enqueue_script( 'tailwind', 'https://cdn.tailwindcss.com/', array(), '', false );
-    wp_enqueue_style( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css', array(), '10.0.0' );
+    wp_enqueue_style( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css', array(), '10.0.0');
     wp_enqueue_style( 'blueprint', get_template_directory_uri() . '/assets/css/blueprint.css', array(), '', 'all' );
     wp_enqueue_script( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js', array(), '10.0.0', true );
    
@@ -125,7 +125,7 @@ function blueprint_enqueue_google_fonts() {
     
     $google_fonts_url = 'https://fonts.googleapis.com/css2?family=' . implode( '&family=', $font_params ) . '&display=swap';
     
-    wp_enqueue_style( 'blueprint-google-fonts', $google_fonts_url, array(), null );
+    wp_enqueue_style( 'blueprint-google-fonts', $google_fonts_url, array(), true );
 }
 add_action( 'enqueue_block_editor_assets', 'blueprint_enqueue_google_fonts', 5 );
 
