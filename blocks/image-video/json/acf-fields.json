@@ -1,0 +1,118 @@
+[
+    {
+        "key": "group_video",
+        "title": "Block: Afbeelding \/ Video",
+        "fields": [
+            {
+                "key": "field_video_source",
+                "label": "Type",
+                "name": "source",
+                "aria-label": "",
+                "type": "radio",
+                "instructions": "Kies of je een URL wilt gebruiken of een video wilt uploaden.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "url": "URL (YouTube \/ Vimeo)",
+                    "upload-video": "Upload video",
+                    "upload-image": "Upload afbeelding"
+                },
+                "default_value": "url",
+                "return_format": "value",
+                "allow_null": 0,
+                "other_choice": 0,
+                "allow_in_bindings": 0,
+                "layout": "horizontal",
+                "save_other_choice": 0
+            },
+            {
+                "key": "field_video_url",
+                "label": "Video URL",
+                "name": "video_url",
+                "aria-label": "",
+                "type": "oembed",
+                "instructions": "Plak hier een YouTube- of Vimeo-URL.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_video_source",
+                            "operator": "==",
+                            "value": "url"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "https:\/\/www.youtube.com\/watch?v=...",
+                "allow_in_bindings": 0,
+                "width": "",
+                "height": ""
+            },
+            {
+                "key": "field_video_file",
+                "label": "Bestand",
+                "name": "file",
+                "aria-label": "",
+                "type": "file",
+                "instructions": "Upload een video bestand (mp4, webm, mov) of een afbeelding (jpg, png, gif) wanneer 'Upload afbeelding' geselecteerd.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_video_source",
+                            "operator": "==",
+                            "value": "upload-video"
+                        }
+                    ],
+                    [
+                        {
+                            "field": "field_video_source",
+                            "operator": "==",
+                            "value": "upload-image"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "library": "all",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": "mp4,webm,mov,jpg,jpeg,png,gif",
+                "allow_in_bindings": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf\/image-video"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0,
+        "display_title": ""
+    }
+]

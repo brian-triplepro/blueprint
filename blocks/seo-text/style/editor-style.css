@@ -1,0 +1,21 @@
+.blueprint-seo-text .text p {
+  margin-block-start: 0;
+  margin-block-end: 20px;
+}
+
+@media (max-width: 767px) {
+  /* always use a single column on narrow viewports */
+  .blueprint-seo-text .text {
+    -webkit-columns: 1 !important;
+    columns: 1 !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .blueprint-seo-text .text {
+    -webkit-columns: var(--seo-columns, 2);
+    columns: var(--seo-columns, 2);
+    column-gap: 50px;
+    vertical-align: top;
+  }
+}

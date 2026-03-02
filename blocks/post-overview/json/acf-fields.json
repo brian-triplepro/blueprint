@@ -1,0 +1,447 @@
+[
+    {
+        "key": "group_post_overview",
+        "title": "Block: Post Overzicht",
+        "fields": [
+            {
+                "key": "field_post_overview_remove_padding",
+                "label": "Verwijder ondermarge",
+                "name": "rm_pb",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "allow_in_bindings": 0,
+                "ui_on_text": "",
+                "ui_off_text": "",
+                "ui": 1
+            },
+            {
+                "key": "field_post_overview_title",
+                "label": "Titel",
+                "name": "title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Onze blogs\/cases",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_post_overview_intro",
+                "label": "Intro tekst",
+                "name": "intro_text",
+                "aria-label": "",
+                "type": "textarea",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "rows": 3,
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "new_lines": "br"
+            },
+            {
+                "key": "field_post_overview_colors",
+                "label": "Kleuren",
+                "name": "colors",
+                "aria-label": "",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "table",
+                "sub_fields": [
+                    {
+                        "key": "field_post_overview_bg_color",
+                        "label": "Achtergrondkleur sectie",
+                        "name": "bg_color",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33.33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "white": "Geen",
+                            "primary": "Primair",
+                            "secondary": "Secundair",
+                            "background": "Achtergrond"
+                        },
+                        "default_value": "white",
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
+                    },
+                    {
+                        "key": "field_post_overview_title_color",
+                        "label": "Titel kleur",
+                        "name": "title_color",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33.33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "dark": "Donkere tekst",
+                            "light": "Lichte tekst",
+                            "accent": "Accent kleur tekst"
+                        },
+                        "default_value": "dark",
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
+                    },
+                    {
+                        "key": "field_post_overview_text_color",
+                        "label": "Tekstkleur",
+                        "name": "text_color",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33.33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "dark": "Donkere tekst",
+                            "light": "Lichte tekst",
+                            "accent": "Accent kleur tekst"
+                        },
+                        "default_value": "dark",
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
+                    }
+                ]
+            },
+            {
+                "key": "field_post_overview_card_colors",
+                "label": "Kaart kleuren",
+                "name": "card_colors",
+                "aria-label": "",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "table",
+                "sub_fields": [
+                    {
+                        "key": "field_post_overview_card_bg_color",
+                        "label": "Achtergrondkleur kaart",
+                        "name": "card_bg_color",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "white": "Geen",
+                            "primary": "Primair",
+                            "secondary": "Secundair",
+                            "background": "Achtergrond"
+                        },
+                        "default_value": "secondary",
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
+                    },
+                    {
+                        "key": "field_post_overview_card_text_color",
+                        "label": "Tekstkleur kaart",
+                        "name": "card_text_color",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "dark": "Donkere tekst",
+                            "light": "Lichte tekst",
+                            "accent": "Accent kleur tekst"
+                        },
+                        "default_value": "dark",
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
+                    }
+                ]
+            },
+            {
+                "key": "field_post_overview_settings",
+                "label": "Instellingen",
+                "name": "settings",
+                "aria-label": "",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "table",
+                "sub_fields": [
+                    {
+                        "key": "field_post_overview_posts_per_page",
+                        "label": "Aantal posts",
+                        "name": "posts_per_page",
+                        "aria-label": "",
+                        "type": "number",
+                        "instructions": "Gebruik -1 voor alle posts",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": 3,
+                        "min": -1,
+                        "max": "",
+                        "allow_in_bindings": 0,
+                        "placeholder": "",
+                        "step": "",
+                        "prepend": "",
+                        "append": ""
+                    },
+                    {
+                        "key": "field_post_overview_layout",
+                        "label": "Layout",
+                        "name": "layout",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "grid": "Grid",
+                            "list": "Lijst"
+                        },
+                        "default_value": "grid",
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
+                    },
+                    {
+                        "key": "field_post_overview_post_type",
+                        "label": "Post type",
+                        "name": "post_type",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "Kies welke post type moet worden weergegeven",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "post": "Bericht",
+                            "page": "Pagina",
+                            "attachment": "Media",
+                            "cases": "Case"
+                        },
+                        "default_value": "post",
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
+                    }
+                ]
+            },
+            {
+                "key": "field_post_overview_cta",
+                "label": "CTA",
+                "name": "cta_1",
+                "aria-label": "",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "table",
+                "sub_fields": [
+                    {
+                        "key": "field_post_overview_cta_style",
+                        "label": "Stijl",
+                        "name": "style",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33.33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "primary": "Primary",
+                            "primary-inv": "Primary Inversed",
+                            "secondary": "Secondary",
+                            "secondary-inv": "Secondary Inversed",
+                            "accent": "Accent",
+                            "accent-inv": "Accent Inversed"
+                        },
+                        "default_value": "primary-inv",
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
+                    },
+                    {
+                        "key": "field_post_overview_cta_link",
+                        "label": "Link",
+                        "name": "link",
+                        "aria-label": "",
+                        "type": "link",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33.33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "allow_in_bindings": 0
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf\/post-overview"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0,
+        "display_title": ""
+    }
+]

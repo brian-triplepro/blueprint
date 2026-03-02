@@ -1,0 +1,209 @@
+[
+    {
+        "key": "group_reviews_slider",
+        "title": "Block: Reviews Slider",
+        "fields": [
+            {
+                "key": "field_reviews_slider_remove_padding",
+                "label": "Verwijder ruimte onder de sectie",
+                "name": "rm_bp",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "allow_in_bindings": 0,
+                "ui_on_text": "",
+                "ui_off_text": "",
+                "ui": 1
+            },
+            {
+                "key": "field_reviews_slider_title",
+                "label": "Titel",
+                "name": "title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Reviews",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_reviews_slider_colors",
+                "label": "Kleuren",
+                "name": "colors",
+                "aria-label": "",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "table",
+                "sub_fields": [
+                    {
+                        "key": "field_reviews_slider_bg_color",
+                        "label": "Achtergrondkleur sectie",
+                        "name": "bg_color",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33.33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "white": "Geen",
+                            "primary": "Primair",
+                            "secondary": "Secundair",
+                            "background": "Achtergrond"
+                        },
+                        "default_value": "background",
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
+                    },
+                    {
+                        "key": "field_reviews_slider_title_color",
+                        "label": "Titel kleur",
+                        "name": "title_color",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33.33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "dark": "Donkere tekst",
+                            "light": "Lichte tekst",
+                            "accent": "Accent kleur tekst"
+                        },
+                        "default_value": "dark",
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
+                    },
+                    {
+                        "key": "field_reviews_slider_text_color",
+                        "label": "Tekstkleur",
+                        "name": "text_color",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33.33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "dark": "Donkere tekst",
+                            "light": "Lichte tekst",
+                            "accent": "Accent kleur tekst"
+                        },
+                        "default_value": "dark",
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
+                    },
+                    {
+                        "key": "field_reviews_slider_card_color",
+                        "label": "Kaart kleur",
+                        "name": "block-color",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33.33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "white": "Geen",
+                            "primary": "Primair",
+                            "secondary": "Secundair",
+                            "background": "Achtergrond"
+                        },
+                        "default_value": "secondary",
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf\/reviews-slider"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0,
+        "display_title": ""
+    }
+]

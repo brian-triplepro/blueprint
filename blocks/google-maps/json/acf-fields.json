@@ -1,0 +1,253 @@
+[
+    {
+        "key": "group_697c82a64c65a",
+        "title": "Block: Google Maps",
+        "fields": [
+            {
+                "key": "field_google_maps_use_options",
+                "label": "Gebruik adres gegevens van opties pagina",
+                "name": "use_options_address",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "Schakel in om het adres van de opties pagina te gebruiken, of schakel uit om een custom adres in te voeren",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 1,
+                "allow_in_bindings": 0,
+                "ui_on_text": "Ja",
+                "ui_off_text": "Nee",
+                "ui": 1
+            },
+            {
+                "key": "field_google_maps_address_group",
+                "label": "Adres gegevens",
+                "name": "address_details",
+                "aria-label": "",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_google_maps_use_options",
+                            "operator": "!=",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "table",
+                "sub_fields": [
+                    {
+                        "key": "field_google_maps_street",
+                        "label": "Straatnaam + huisnummer",
+                        "name": "street",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "allow_in_bindings": 0,
+                        "placeholder": "Bijv. Griffeweg 97",
+                        "prepend": "",
+                        "append": ""
+                    },
+                    {
+                        "key": "field_google_maps_city",
+                        "label": "Stad",
+                        "name": "city",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "allow_in_bindings": 0,
+                        "placeholder": "Bijv. Groningen",
+                        "prepend": "",
+                        "append": ""
+                    },
+                    {
+                        "key": "field_google_maps_zipcode",
+                        "label": "Postcode",
+                        "name": "zipcode",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "allow_in_bindings": 0,
+                        "placeholder": "Bijv. 9723 AB",
+                        "prepend": "",
+                        "append": ""
+                    },
+                    {
+                        "key": "field_google_maps_country",
+                        "label": "Land",
+                        "name": "country",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "Nederland",
+                        "maxlength": "",
+                        "allow_in_bindings": 0,
+                        "placeholder": "Bijv. Nederland",
+                        "prepend": "",
+                        "append": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_google_maps_settings",
+                "label": "Kaart instellingen",
+                "name": "map_settings",
+                "aria-label": "",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "table",
+                "sub_fields": [
+                    {
+                        "key": "field_google_maps_height",
+                        "label": "Hoogte kaart (px)",
+                        "name": "height",
+                        "aria-label": "",
+                        "type": "number",
+                        "instructions": "Hoogte van de kaart in pixels",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": 450,
+                        "min": 200,
+                        "max": 1000,
+                        "allow_in_bindings": 0,
+                        "placeholder": "",
+                        "step": "",
+                        "prepend": "",
+                        "append": "px"
+                    },
+                    {
+                        "key": "field_google_maps_zoom",
+                        "label": "Zoom niveau",
+                        "name": "zoom",
+                        "aria-label": "",
+                        "type": "number",
+                        "instructions": "Zoom niveau van de kaart (1-20)",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": 14,
+                        "min": 1,
+                        "max": 20,
+                        "allow_in_bindings": 0,
+                        "placeholder": "",
+                        "step": "",
+                        "prepend": "",
+                        "append": ""
+                    },
+                    {
+                        "key": "field_google_maps_language",
+                        "label": "Taal",
+                        "name": "language",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "Taal van de kaart",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "33",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "nl": "Nederlands",
+                            "en": "Engels",
+                            "de": "Duits",
+                            "fr": "Frans"
+                        },
+                        "default_value": "nl",
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf\/google-maps"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0,
+        "display_title": ""
+    }
+]

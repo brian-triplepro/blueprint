@@ -1,0 +1,28 @@
+{
+    "name": "acf/content-image",
+    "title": "Afbeelding en tekst",
+    "description": "Blok met afbeelding en tekst naast elkaar",
+    "category": "blueprint-blocks",
+    "icon": "admin-customizer",
+    
+    "acf": {
+        "blockVersion": 3,
+        "renderTemplate": "render.php",
+        "autoInlineEditing": true
+    },
+    
+    "supports": {
+        "align": true
+    },
+
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "is_preview": true,
+                "preview_image": "./images/screenshot.png"
+            }
+            
+        }
+    }
+}

@@ -1,0 +1,232 @@
+[
+    {
+        "key": "group_contact_block",
+        "title": "Block: Contact",
+        "fields": [
+            {
+                "key": "field_contact_block_title",
+                "label": "Titel",
+                "name": "title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Contact",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_contact_block_shortcode",
+                "label": "Formulier shortcode",
+                "name": "form_shortcode",
+                "aria-label": "",
+                "type": "textarea",
+                "instructions": "Plak hier de shortcode van je contactformulier (bijv. [contact-form-7 id=\"123\"] of [fluentform id=\"1\"])",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "placeholder": "[contact-form-7 id=\"123\"]",
+                "rows": 3,
+                "new_lines": ""
+            },
+            {
+                "key": "field_contact_block_bg_color",
+                "label": "Achtergrondkleur",
+                "name": "bg_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "Kies de achtergrondkleur voor dit blok",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "primary": "Primair",
+                    "secondary": "Secundair",
+                    "background": "Achtergrond"
+                },
+                "default_value": "background",
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "allow_in_bindings": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": "",
+                "create_options": 0,
+                "save_options": 0
+            },
+            {
+                "key": "field_contact_block_text_color",
+                "label": "Tekst kleur",
+                "name": "text_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "dark": "Donkere tekst",
+                    "light": "Lichte tekst",
+                    "accent": "Accent kleur tekst"
+                },
+                "default_value": "dark",
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "allow_in_bindings": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": "",
+                "create_options": 0,
+                "save_options": 0
+            },
+            {
+                "key": "field_contact_block_form_bg_color",
+                "label": "Formulier achtergrondkleur",
+                "name": "form_bg_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "Kies de achtergrondkleur voor het formulier vak",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "white": "Wit",
+                    "primary": "Primair",
+                    "secondary": "Secundair",
+                    "background": "Achtergrond"
+                },
+                "default_value": "white",
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "allow_in_bindings": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": "",
+                "create_options": 0,
+                "save_options": 0
+            },
+            {
+                "key": "field_contact_block_form_text_color",
+                "label": "Formulier tekst kleur",
+                "name": "form_text_color",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "dark": "Donkere tekst",
+                    "light": "Lichte tekst",
+                    "accent": "Accent kleur tekst"
+                },
+                "default_value": "dark",
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "allow_in_bindings": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": "",
+                "create_options": 0,
+                "save_options": 0
+            },
+            {
+                "key": "field_contact_block_info_title",
+                "label": "Titel contactgegevens",
+                "name": "info_title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Contactgegevens",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_contact_block_hours_title",
+                "label": "Titel openingstijden",
+                "name": "hours_title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Openingstijden",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf\/contact-block"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0,
+        "display_title": ""
+    }
+]

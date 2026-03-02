@@ -1,0 +1,52 @@
+// /* --- Typography --- */
+
+.editor-styles-wrapper {
+    font-family: var(--font-body);
+    font-size: var(--font-body-size);
+}
+
+.editor-styles-wrapper h1 {
+    font-family: var(--font-h1);
+    font-size: var(--font-h1-size); 
+    font-weight: 700;
+}
+
+.editor-styles-wrapper h2 {
+    font-family: var(--font-h2); 
+    font-size: var(--font-h2-size); 
+    font-weight: 700;
+}
+
+.editor-styles-wrapper h3 {
+    font-family: var(--font-h3);
+    font-size: var(--font-h3-size);
+    font-weight: 700;
+}
+
+.wp-singular h1,
+.page h1 {
+    font-family: var(--font-h1) ;
+    font-size: var(--font-h1-size) ;
+    font-weight: 700 ;
+    line-height: 1;
+}
+
+.wp-singular h2,
+.page h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-family: var(--font-h2) ;
+    font-size: var(--font-h2-size) ;
+    font-weight: 700 ;
+    line-height: 1;
+}
+
+.wp-singular h3,
+.page h3 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-family: var(--font-h3) ;
+    font-size: var(--font-h3-size);
+    font-weight: 700 ;
+    line-height: 1;
+}

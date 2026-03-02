@@ -1,0 +1,14 @@
+
+.hero-home { 
+    min-height: 800px !important; 
+}
+
+.hero-depth { 
+    min-height: 400px !important;
+}
+
+/* hide image/overlay children inside depth hero while block hasn't re-rendered yet */
+.hero-depth > div[style*="background-image"],
+.hero-depth > div[style*="opacity"] {
+    display: none !important;
+}
