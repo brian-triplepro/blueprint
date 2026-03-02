@@ -77,11 +77,11 @@
     <?php if ( $query->have_posts() ) : ?>
       <div class="blog-posts grid <?php echo $layout === 'list' ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'; ?> gap-8">
         <?php while ( $query->have_posts() ) : $query->the_post(); ?>
-          <article class="blog-post bg-<?php echo esc_attr( $card_background_color ); ?> text-<?php echo esc_attr( $card_text_color ); ?> rounded-[30px] overflow-hidden transition-transform transition-shadow duration-300 hover:-translate-y-1 hover:shadow-lg h-full <?php echo $layout==='list' ? 'flex flex-col md:flex-row' : 'flex flex-col'; ?>">
+          <article class="blog-post bg-<?php echo esc_attr( $card_background_color ); ?> text-<?php echo esc_attr( $card_text_color ); ?> rounded-[30px] overflow-hidden transition-transform transition-shadow duration-300 hover:-translate-y-1 h-full <?php echo $layout==='list' ? 'flex flex-col md:flex-row' : 'flex flex-col'; ?>">
             <?php if ( has_post_thumbnail() ) : ?>
               <div class="blog-post-image relative overflow-hidden min-h-[300px] aspect-video <?php echo $layout==='list' ? 'md:w-1/3' : ''; ?>">
                 <a href="<?php the_permalink(); ?>" class="block w-full h-full">
-                  <?php the_post_thumbnail( 'medium_large', array( 'loading' => 'lazy', 'class'=>'w-full h-full object-cover transition-transform duration-300 hover:scale-105' ) ); ?>
+                  <?php the_post_thumbnail( 'medium_large', array( 'loading' => 'lazy', 'class'=>'w-full h-full object-cover' ) ); ?>
                 </a>
               </div>
             <?php endif; ?>
