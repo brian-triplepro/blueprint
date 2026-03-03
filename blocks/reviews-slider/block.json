@@ -5,8 +5,6 @@
     "category": "blueprint-blocks",
     "icon": "admin-customizer",
     
-   "style": "file:./style/style.css",
-    
     "acf": {
         "blockVersion": 3,
         "renderTemplate": "render.php",

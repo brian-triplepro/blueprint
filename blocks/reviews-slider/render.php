@@ -26,22 +26,22 @@
 
 
 <section class="<?= $section_classes ?>" style="--reviews-card-bg: var(--color-<?php echo esc_attr( $card_color ); ?>);">
-  <div class="container">
+  <div class="container mx-auto">
     <?php if ( ! empty( $items ) ) : ?>
-      <div class="reviews-header flex justify-between flex-wrap gap-20px">
+      <div class="flex justify-between items-center mb-8 flex-wrap gap-5">
         <div>
             <?php if ( $title ) : ?>
-            <h2 <?php if ( function_exists('acf_inline_text_editing_attrs') ) echo acf_inline_text_editing_attrs('title'); ?> class="reviews-title text-<?php echo esc_attr( $title_color ); ?>"><?php echo esc_html( $title ); ?></h2>
+            <h2 <?php if ( function_exists('acf_inline_text_editing_attrs') ) echo acf_inline_text_editing_attrs('title'); ?> class="m-0 text-<?php echo esc_attr( $title_color ); ?>"><?php echo esc_html( $title ); ?></h2>
             <?php endif; ?>
         </div>
-        <div class="reviews-navigation">
-          <div class="review-btn-prev carousel-btn" aria-label="<?php esc_attr_e( 'Vorige review', 'blueprint' ); ?>">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+        <div class="flex justify-center gap-3">
+          <div class="w-10 h-10 cursor-pointer transition-opacity duration-300 flex items-center justify-center hover:opacity-70 review-btn-prev" aria-label="<?php esc_attr_e( 'Vorige review', 'blueprint' ); ?>">
+            <svg class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
               <path id="arrow_circle_right_24dp_5F6368_FILL0_wght200_GRAD0_opsz24" d="M143.137-818.889l-3.923,3.923a.942.942,0,0,0-.291.743,1.094,1.094,0,0,0,.333.743,1.047,1.047,0,0,0,.772.312,1,1,0,0,0,.758-.312l5.265-5.264A1.723,1.723,0,0,0,146.59-820a1.723,1.723,0,0,0-.539-1.257l-5.308-5.307a1.014,1.014,0,0,0-.743-.312,1.014,1.014,0,0,0-.743.312,1.047,1.047,0,0,0-.312.772,1,1,0,0,0,.312.758l3.88,3.923h-9.8a1.074,1.074,0,0,0-.792.32,1.078,1.078,0,0,0-.319.793,1.072,1.072,0,0,0,.319.791,1.077,1.077,0,0,0,.792.318ZM140.007-800a19.493,19.493,0,0,1-7.8-1.574,20.214,20.214,0,0,1-6.353-4.273,20.18,20.18,0,0,1-4.277-6.348,19.448,19.448,0,0,1-1.576-7.8,19.493,19.493,0,0,1,1.574-7.8,20.214,20.214,0,0,1,4.273-6.353,20.182,20.182,0,0,1,6.348-4.277,19.449,19.449,0,0,1,7.8-1.576,19.493,19.493,0,0,1,7.8,1.574,20.214,20.214,0,0,1,6.353,4.273,20.181,20.181,0,0,1,4.277,6.348,19.449,19.449,0,0,1,1.576,7.8,19.492,19.492,0,0,1-1.574,7.8,20.213,20.213,0,0,1-4.273,6.353,20.18,20.18,0,0,1-6.348,4.277A19.448,19.448,0,0,1,140.007-800ZM140-802.222a17.158,17.158,0,0,0,12.611-5.167A17.158,17.158,0,0,0,157.778-820a17.158,17.158,0,0,0-5.167-12.611A17.158,17.158,0,0,0,140-837.778a17.158,17.158,0,0,0-12.611,5.167A17.158,17.158,0,0,0,122.222-820a17.158,17.158,0,0,0,5.167,12.611A17.158,17.158,0,0,0,140-802.222ZM140-820Z" transform="translate(160 -800) rotate(180)" fill="#fcf6f1"></path>
             </svg>
           </div>
-          <div class="review-btn-next carousel-btn" aria-label="<?php esc_attr_e( 'Volgende review', 'blueprint' ); ?>">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+          <div class="w-10 h-10 cursor-pointer transition-opacity duration-300 flex items-center justify-center hover:opacity-70 review-btn-next" aria-label="<?php esc_attr_e( 'Volgende review', 'blueprint' ); ?>">
+            <svg class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
               <path id="arrow_circle_right_24dp_5F6368_FILL0_wght200_GRAD0_opsz24" d="M143.137-818.889l-3.923,3.923a.942.942,0,0,0-.291.743,1.094,1.094,0,0,0,.333.743,1.047,1.047,0,0,0,.772.312,1,1,0,0,0,.758-.312l5.265-5.264A1.723,1.723,0,0,0,146.59-820a1.723,1.723,0,0,0-.539-1.257l-5.308-5.307a1.014,1.014,0,0,0-.743-.312,1.014,1.014,0,0,0-.743.312,1.047,1.047,0,0,0-.312.772,1,1,0,0,0,.312.758l3.88,3.923h-9.8a1.074,1.074,0,0,0-.792.32,1.078,1.078,0,0,0-.319.793,1.072,1.072,0,0,0,.319.791,1.077,1.077,0,0,0,.792.318ZM140.007-800a19.493,19.493,0,0,1-7.8-1.574,20.214,20.214,0,0,1-6.353-4.273,20.18,20.18,0,0,1-4.277-6.348,19.448,19.448,0,0,1-1.576-7.8,19.493,19.493,0,0,1,1.574-7.8,20.214,20.214,0,0,1,4.273-6.353,20.182,20.182,0,0,1,6.348-4.277,19.449,19.449,0,0,1,7.8-1.576,19.493,19.493,0,0,1,7.8,1.574,20.214,20.214,0,0,1,6.353,4.273,20.181,20.181,0,0,1,4.277,6.348,19.449,19.449,0,0,1,1.576,7.8,19.492,19.492,0,0,1-1.574,7.8,20.213,20.213,0,0,1-4.273,6.353,20.18,20.18,0,0,1-6.348,4.277A19.448,19.448,0,0,1,140.007-800ZM140-802.222a17.158,17.158,0,0,0,12.611-5.167A17.158,17.158,0,0,0,157.778-820a17.158,17.158,0,0,0-5.167-12.611A17.158,17.158,0,0,0,140-837.778a17.158,17.158,0,0,0-12.611,5.167A17.158,17.158,0,0,0,122.222-820a17.158,17.158,0,0,0,5.167,12.611A17.158,17.158,0,0,0,140-802.222ZM140-820Z" transform="translate(-120 840)" fill="#fcf6f1"></path>
             </svg>
           </div>
@@ -59,44 +59,45 @@
             $link = $item['link'] ?? '';
           ?>
             <div class="swiper-slide">
-              <article class="review-card flex flex-col justify-between" >
+              <article class="bg-[var(--reviews-card-bg)] p-8 rounded-[18px] w-full box-border flex flex-col justify-between" >
                 <div class="w-full">
-                  <?php if ( $logo_choice ) : ?>
-                    <div class="review-logo">
-                      <?php
-                      if ( is_numeric( $logo_choice ) ) {
-                        echo wp_get_attachment_image( (int) $logo_choice, 'thumbnail' );
-                      } else {
-                        switch ( $logo_choice ) {
-                          case 'google':
-                            echo '<img src="' . get_template_directory_uri() . '/assets/icons/brands/google.svg" alt="Google Logo" style="height:40px; width:auto;" />';
-                            break;
+                  <div class="flex flex-wrap items-center gap-[20px] mb-4">
+                    <?php if ( $logo_choice ) : ?>
+                      <div class="review-logo">
+                        <?php
+                        if ( is_numeric( $logo_choice ) ) {
+                          echo wp_get_attachment_image( (int) $logo_choice, 'thumbnail', false, array('class' => 'w-[44px] h-[44px] object-contain rounded-[8px] mb-3') );
+                        } else {
+                          switch ( $logo_choice ) {
+                            case 'google':
+                              echo '<img src="' . get_template_directory_uri() . '/assets/icons/brands/google.svg" alt="Google Logo" style="height:40px; width:auto;" />';
+                              break;
 
-                          case 'facebook':
-                            echo '<img src="' . get_template_directory_uri() . '/assets/icons/brands/facebook.svg" alt="Facebook Logo" style="height:40px; width:auto;" />';
-                            break;
+                            case 'facebook':
+                              echo '<img src="' . get_template_directory_uri() . '/assets/icons/brands/facebook.svg" alt="Facebook Logo" style="height:40px; width:auto;" />';
+                              break;
 
-                          case 'klantenvertellen':
-                            echo '<img src="' . get_template_directory_uri() . '/assets/icons/brands/klanten-vertellen.svg" alt="Klantenvertellen Logo" style="height:40px;" />';
-                            break;
+                            case 'klantenvertellen':
+                              echo '<img src="' . get_template_directory_uri() . '/assets/icons/brands/klanten-vertellen.svg" alt="Klantenvertellen Logo" style="height:40px;" />';
+                              break;
 
-                          default:
-                            echo esc_html( $logo_choice );
+                            default:
+                              echo esc_html( $logo_choice );
+                          }
                         }
-                      }
-                      ?>
+                        ?>
+                      </div>
+                    <?php endif; ?>
+
+                    <div class="review-stars" aria-hidden="true">
+                      <?php for ( $i = 0; $i < $rating; $i++ ) : ?>
+                        <span class="text-[18px]">★</span>
+                      <?php endfor; ?>
                     </div>
-                  <?php endif; ?>
-
-                  <div class="review-stars" aria-hidden="true">
-                    <?php for ( $i = 0; $i < $rating; $i++ ) : ?>
-                      <span class="star">★</span>
-                    <?php endfor; ?>
                   </div>
-
-                  <div class="review-text"><?php echo wp_kses_post( $review ); ?></div>
+                  <div class="mt-[10px] mb-[16px] leading-[1.6]"><?php echo wp_kses_post( $review ); ?></div>
                 </div>
-                <div class="review-author"><?php echo esc_html( $author ); ?><?php if ( $company ) echo ' - ' . esc_html( $company ); ?></div>
+                <div class="font-semibold mt-2"><?php echo esc_html( $author ); ?><?php if ( $company ) echo ' - ' . esc_html( $company ); ?></div>
 
                 <?php
                   $link_url = '';
@@ -111,7 +112,7 @@
                   }
 
                   if ( $link_url ) : ?>
-                  <div class="review-cta"><a class="button" href="<?php echo esc_url( $link_url ); ?>"><?php echo esc_html( $link_title ); ?></a></div>
+                  <div class="review-cta"><a class="inline-block mt-3 button" href="<?php echo esc_url( $link_url ); ?>"><?php echo esc_html( $link_title ); ?></a></div>
                 <?php endif; ?>
               </article>
             </div>
@@ -130,7 +131,7 @@
 <script>
 (function() {
   function initReviewsSwiper() {
-    var reviewsEl = document.querySelector('.<?php echo 'blueprint-' . basename( __DIR__ ); ?>  .reviews');
+    var reviewsEl = document.querySelector('.<?php echo 'blueprint-' . basename( __DIR__ ); ?> .reviews');
     if (!reviewsEl) return;
     
     // Destroy existing instance if any
@@ -138,16 +139,18 @@
       reviewsEl.swiper.destroy(true, true);
     }
     
-    var container = reviewsEl.closest('.<?php echo 'blueprint-' . basename( __DIR__ ); ?> ');
+    // find the block wrapper (section)
+    var container = reviewsEl.closest('.<?php echo 'blueprint-' . basename( __DIR__ ); ?>');
     var slides = reviewsEl.querySelectorAll('.swiper-slide');
     var slideCount = slides.length;
 
-    new Swiper(reviewsEl, {
+    var swiperInstance = new Swiper(reviewsEl, {
+      loop: true,
       slidesPerView: 1,
       spaceBetween: 20,
       navigation: {
-        nextEl: container.querySelector('.review-btn-next'),
-        prevEl: container.querySelector('.review-btn-prev'),
+        nextEl: container ? container.querySelector('.review-btn-next') : null,
+        prevEl: container ? container.querySelector('.review-btn-prev') : null,
       },
       pagination: {
         el: reviewsEl.querySelector('.swiper-pagination'),
@@ -168,6 +171,7 @@
         },
       }
     });
+    console.log('reviews-swiper', swiperInstance, 'slideCount', slideCount);
   }
 
   // Init on load
