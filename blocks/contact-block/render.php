@@ -52,8 +52,9 @@
                     <p>Voeg een formulier shortcode toe in de blok instellingen.</p>
                 </div>
             <?php endif; ?>
+             <br>
         </div>
-
+       
         <div>
             <?php if ( $company_name || $street || $city || $phone || $email ) : ?>
                 <div  class="mb-[50px]">
@@ -71,6 +72,7 @@
                             <?php echo esc_html( trim( $zipcode . ' ' . $city ) ); ?></p>
                         <?php endif; ?>
                     </div>
+                    <br>
                     <?php if ( $phone || $whatsapp || $email ) : ?>
                         <p>
                             <?php if ( $phone ) : ?>
@@ -93,13 +95,15 @@
                         <h2 class="text-xl font-semibold mb-4"><?php echo esc_html( $hours_title ); ?></h2>
                     <?php endif; ?>
                     <div class="space-y-1">
-                        <?php foreach ( $opening_hours as $hours_item ) : 
-                            $day = $hours_item['day'] ?? '';
-                            $hours = $hours_item['hours'] ?? '';
-                            if ( $day || $hours ) :
-                        ?>
-                            <p><?php echo esc_html( $day . ' ' . $hours ); ?></p>
-                        <?php endif; endforeach; ?>
+                        <table>                        
+                            <?php foreach ( $opening_hours as $hours_item ) : 
+                                $day = $hours_item['day'] ?? '';
+                                $hours = $hours_item['hours'] ?? '';
+                                if ( $day || $hours ) :
+                            ?>
+                                <tr><td class="pr-[20px]"><?php echo esc_html( $day ); ?></td><td><?php echo esc_html( $hours ); ?></td></tr>
+                            <?php endif; endforeach; ?>
+                        </table>
                     </div>
                 </div>
             <?php endif; ?>
