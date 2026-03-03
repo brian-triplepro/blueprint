@@ -293,12 +293,35 @@ function register_custom_acf_blocks() {
     $folders = glob( $blocks_dir . '/*', GLOB_ONLYDIR );
 
     foreach ( $folders as $folder ) {
-        // register each block by folder (WP reads block.json internally)
         register_block_type( $folder );
     }
 }
 
-// Populate the Post type select for the Post Overview block from registered public post types
+function blueprint_allowed_block_types( $allowed, $editor_context ) {
+    $blocks_dir = __DIR__ . '/blocks';
+    $allowed_custom = array();
+
+    if ( is_dir( $blocks_dir ) ) {
+        $folders = glob( $blocks_dir . '/*', GLOB_ONLYDIR );
+        foreach ( $folders as $folder ) {
+            $json_file = $folder . '/block.json';
+            if ( file_exists( $json_file ) ) {
+                $json = json_decode( file_get_contents( $json_file ), true );
+                if ( ! empty( $json['name'] ) ) {
+                    $allowed_custom[] = $json['name'];
+                    continue;
+                }
+            }
+            // fallback: use acf/<directory-name>
+            $dir = basename( $folder );
+            $allowed_custom[] = 'acf/' . $dir;
+        }
+    }
+
+    return $allowed_custom;
+}
+add_filter( 'allowed_block_types_all', 'blueprint_allowed_block_types', 10, 2 );
+
 add_filter('acf/load_field/key=field_post_overview_post_type', function($field) {
     if ( ! function_exists( 'get_post_types' ) ) return $field;
 
