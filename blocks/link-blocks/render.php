@@ -1,30 +1,22 @@
 <?php
-
-    // Check if this is a preview in the block inserter
     if ( isset( $block['data']['is_preview'] ) && $block['data']['is_preview'] ) {
         echo '<img src="' . esc_url( get_stylesheet_directory_uri() . '/blocks/' . basename( __DIR__ ) . '/screenshot.png') . '" alt="Preview" style="width: 100%; height: auto;" />';
         return;
     }
 
-    // Backwards-compat: if icons were saved as plain strings in existing posts,
-    // normalize them so ACF's icon_picker format_value receives an array.
-    // Run early (priority 5) so it executes before ACF's own formatter.
     add_filter( 'acf/format_value/type=icon_picker', function( $value ) {
         if ( ! is_string( $value ) || $value === '' ) {
             return $value;
         }
-
-        // URL -> url
+        
         if ( filter_var( $value, FILTER_VALIDATE_URL ) ) {
             return array( 'type' => 'url', 'value' => $value );
         }
 
-        // Numeric attachment ID stored as string -> media_library
         if ( preg_match( '/^[0-9]+$/', $value ) ) {
             return array( 'type' => 'media_library', 'value' => $value );
         }
 
-        // Otherwise treat as dashicon/class
         return array( 'type' => 'dashicons', 'value' => $value );
     }, 5 );
 
@@ -59,7 +51,7 @@
         <?php endif; ?>
 
         <?php if ( $text ) : ?>
-            <div class="text mb-[40px]">
+            <div class="text">
                 <div>
                 <?php echo wp_kses_post( $text ); ?>
                 </div>
@@ -82,14 +74,7 @@
                             $icon_value = $icon_value['url'];
                         }
 
-                        // If the returned value matches an SVG filename in assets, use that file.
-                        if ( is_string( $icon_value ) && $icon_value !== '' ) {
-                            $svg_path = get_template_directory() . '/assets/images/fa-icons/' . $icon_value . '.svg';
-                            if ( file_exists( $svg_path ) ) {
-                                $icon_type  = 'svg_file';
-                                $icon_value = get_template_directory_uri() . '/assets/images/fa-icons/' . $icon_value . '.svg';
-                            }
-                        }
+
                     } else {
                         $raw_icon = (string) $icon_field;
 
@@ -103,15 +88,10 @@
                             $icon_type  = 'dashicons';
                             $icon_value = $raw_icon;
                         } else {
-                            // legacy: filename that exists in assets/images/fa-icons
-                            $svg_path = get_template_directory() . '/assets/images/fa-icons/' . $raw_icon . '.svg';
-                            if ( file_exists( $svg_path ) ) {
-                                $icon_type  = 'svg_file';
-                                $icon_value = get_template_directory_uri() . '/assets/images/fa-icons/' . $raw_icon . '.svg';
-                            } else {
-                                $icon_type  = 'class';
-                                $icon_value = $raw_icon;
-                            }
+
+                            // fallback to using raw class name if nothing else matches
+                            $icon_type  = 'class';
+                            $icon_value = $raw_icon;
                         }
                     }
 
