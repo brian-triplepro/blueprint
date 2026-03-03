@@ -835,8 +835,3 @@ body {
 .swiper-slide > .review-card {
   height: 100%;
 }
-
-p {
-  margin-block-start: 0;
-  margin-block-end: 20px !important;
-}
