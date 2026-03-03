@@ -56,7 +56,7 @@
 
 <section class="<?= esc_attr( $section_classes ); ?>">
   <div class="container">
-    <div class="blog-overview-header flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-10">
+    <div class="blog-overview-header flex flex-col md:flex-row md:justify-between md:items-center mb-[20px]">
       <div class="space-y-2">
         <?php if ( $title ) : ?>
           <h2 class="text-2xl font-semibold text-<?php echo esc_attr( $title_color ); ?>"><?php echo esc_html( $title ); ?></h2>
@@ -77,7 +77,7 @@
     <?php if ( $query->have_posts() ) : ?>
       <div class="blog-posts grid <?php echo $layout === 'list' ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'; ?> gap-8">
         <?php while ( $query->have_posts() ) : $query->the_post(); ?>
-          <article class="blog-post bg-<?php echo esc_attr( $card_background_color ); ?> text-<?php echo esc_attr( $card_text_color ); ?> rounded-[30px] overflow-hidden transition-transform transition-shadow duration-300 hover:-translate-y-1 h-full <?php echo $layout==='list' ? 'flex flex-col md:flex-row' : 'flex flex-col'; ?>">
+          <article class="blog-post bg-<?php echo esc_attr( $card_background_color ); ?> text-<?php echo esc_attr( $card_text_color ); ?> rounded-[30px] overflow-hidden transition-transform transition-shadow duration-300 h-full <?php echo $layout==='list' ? 'flex flex-col md:flex-row' : 'flex flex-col'; ?>">
             <?php if ( has_post_thumbnail() ) : ?>
               <div class="blog-post-image relative overflow-hidden min-h-[300px] aspect-video <?php echo $layout==='list' ? 'md:w-1/3' : ''; ?>">
                 <a href="<?php the_permalink(); ?>" class="block w-full h-full">
@@ -86,14 +86,14 @@
               </div>
             <?php endif; ?>
             
-            <div class="blog-post-content p-6 flex flex-col gap-4 flex-grow <?php echo $layout==='list' ? 'md:w-2/3' : ''; ?>">
+            <div class="blog-post-content p-6 flex flex-col flex-grow <?php echo $layout==='list' ? 'md:w-2/3' : ''; ?>">
               <h3 class="blog-post-title m-0 text-xl font-bold leading-tight">
                 <a href="<?php the_permalink(); ?>" class="text-<?php echo esc_attr( $card_text_color ); ?> no-underline transition-opacity duration-200 hover:opacity-80">
                   <?php the_title(); ?>
                 </a>
               </h3>
               
-              <div class="blog-post-excerpt flex-grow leading-relaxed">
+              <div class="blog-post-excerpt flex-grow leading-relaxed mb-[20px]">
                 <?php echo wp_trim_words( get_the_excerpt(), 20, '…' ); ?>
               </div>
               
