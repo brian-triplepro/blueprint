@@ -1,20 +1,14 @@
 <?php
-/**
- * Block: Header Homepage
- */
 
-// load hero type early so we can use it in preview
-$hero_type = get_field('hero_type');
-// preview placeholder
-if ( isset( $block['data']['is_preview'] ) && $block['data']['is_preview'] ) {
-    if ( $hero_type ) {
-        echo '<img src="' . esc_url( get_stylesheet_directory_uri() . '/blocks/' . basename( __DIR__ ) . '/screenshot.png') . '" alt="Preview" style="width: 100%; height: auto;" />';
-    } else {
-        // depth hero: show simple colour block
-        echo '<div style="width:100%;height:400px;background:#eee;">&nbsp;</div>';
-    }
-    return;
-}
+
+  if ( isset( $block['data']['is_preview'] ) && $block['data']['is_preview'] ) {
+      $screenshot_uri  = get_stylesheet_directory_uri() . '/blocks/' . basename( __DIR__ ) . '/images/screenshot.png';
+      $screenshot_file = get_stylesheet_directory() . '/blocks/' . basename( __DIR__ ) . '/images/screenshot.png';
+      if ( file_exists( $screenshot_file ) ) {
+          echo '<img src="' . esc_url( $screenshot_uri ) . '" alt="Preview" style="width:100%;height:auto;" />';
+          return;
+      }
+  }
 
 // Get block fields
 $hero_type = (int) get_field('hero_type') === 1;

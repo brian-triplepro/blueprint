@@ -1,11 +1,15 @@
 <?php
 
 if ( isset( $block['data']['is_preview'] ) && $block['data']['is_preview'] ) {
-    echo '<img src="' . esc_url( get_stylesheet_directory_uri() . '/blocks/' . basename( __DIR__ ) . '/screenshot.png') . '" alt="Preview" style="width: 100%; height: auto;" />';
-    return;
+    $screenshot_uri  = get_stylesheet_directory_uri() . '/blocks/' . basename( __DIR__ ) . '/images/screenshot.png';
+    $screenshot_file = get_stylesheet_directory() . '/blocks/' . basename( __DIR__ ) . '/images/screenshot.png';
+    if ( file_exists( $screenshot_file ) ) {
+        echo '<img src="' . esc_url( $screenshot_uri ) . '" alt="Preview" style="width:100%;height:auto;" />';
+        return;
+    }
 }
 
-// Load fields from ACF
+  
 $rm_bp = get_field( 'rm_bp' );
 $title = get_field( 'title' ) ?: '';
 $colors = get_field( 'colors' ) ?: array();

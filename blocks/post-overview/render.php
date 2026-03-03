@@ -1,11 +1,15 @@
 <?php
-  // Check if this is a preview in the block inserter
+
+  // show preview image when block is rendered in inserter/editor
   if ( isset( $block['data']['is_preview'] ) && $block['data']['is_preview'] ) {
-      echo '<img src="' . esc_url( get_stylesheet_directory_uri() . '/blocks/' . basename( __DIR__ ) . '/screenshot.png') . '" alt="Preview" style="width: 100%; height: auto;" />';
-      return;
+      $screenshot_uri  = get_stylesheet_directory_uri() . '/blocks/' . basename( __DIR__ ) . '/images/screenshot.png';
+      $screenshot_file = get_stylesheet_directory() . '/blocks/' . basename( __DIR__ ) . '/images/screenshot.png';
+      if ( file_exists( $screenshot_file ) ) {
+          echo '<img src="' . esc_url( $screenshot_uri ) . '" alt="Preview" style="width:100%;height:auto;" />';
+          return;
+      }
   }
 
-  // Load ACF field-values and assign defaults.
   $remove_bottom_padding = get_field( 'remove_bottom_padding' );
 
   $title = get_field( 'title' );
