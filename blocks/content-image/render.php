@@ -7,7 +7,7 @@
    
     $colors = get_field('colors') ?: array();
     $bg_color = $colors['bg_color'] ?? 'background';
-    $color = $colors['text_color'] ?? 'dark';
+    $text_color = $colors['text_color'] ?? 'dark';
 
     $content = get_field('content') ?: array();
     $title = $content['title'] ?? '';
@@ -51,10 +51,10 @@
                     <?php echo wp_kses_post( $text ); ?>
                 </div>
             <?php endif; ?>
-            <?php if ( $cta_title && $cta_url ) : ?>
+            <?php if ( $cta1_title && $cta1_url ) : ?>
                 <div>
-                    <a href="<?php echo esc_url($cta_url); ?>" class="btn <?php echo esc_attr($cta_style); ?>" target="<?php echo esc_attr($cta_target); ?>">
-                        <?php echo esc_html($cta_title); ?>
+                    <a href="<?php echo esc_url($cta1_url); ?>" class="btn <?php echo esc_attr($cta1_style); ?>" target="<?php echo esc_attr($cta1_target); ?>">
+                        <?php echo esc_html($cta1_title); ?>
                     </a>
                 </div>
             <?php endif; ?>
