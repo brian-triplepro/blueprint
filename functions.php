@@ -347,6 +347,8 @@ add_action('rest_api_init', function () {
     ]);
 });
 
-if (get_field('activate_cases_cpt', 'option')) {
-    require_once get_template_directory() . '/inc/cases-cpt.php';
+if ( function_exists('activate_cases_cpt')) { 
+    if (get_field('activate_cases_cpt', 'option')) {
+        require_once get_template_directory() . '/inc/cases-cpt.php';
+    }
 }

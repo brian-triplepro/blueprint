@@ -1,18 +1,22 @@
 <?php
-$address = function_exists( 'get_field' ) ? get_field( 'address_details', 'option' ) : array();
-$contact = function_exists( 'get_field' ) ? get_field( 'contact_details', 'option' ) : array();
+if ( function_exists( 'get_field' ) ) {
+    $address = get_field( 'address_details', 'option' ) ?: array();
+    $contact = get_field( 'contact_details', 'option' ) ?: array();
+} else {
+    $address = array();
+    $contact = array();
+}
 
-// Support both grouped option fields and individual fields as fallbacks
-$company = get_field( 'address_details', 'option' )["companyname"];
+$company = ! empty( $address['companyname'] ) ? $address['companyname'] : '';
 
-$street = ! empty( $address['street'] ) ? $address['street'] : ( function_exists( 'get_field' ) ? get_field( 'street', 'option' ) : '' );
-$house_number = ! empty( $address['house_number'] ) ? $address['house_number'] : ( function_exists( 'get_field' ) ? get_field( 'house_number', 'option' ) : '' );
-$zipcode = ! empty( $address['zipcode'] ) ? $address['zipcode'] : ( function_exists( 'get_field' ) ? get_field( 'zipcode', 'option' ) : '' );
-$city = ! empty( $address['city'] ) ? $address['city'] : ( function_exists( 'get_field' ) ? get_field( 'city', 'option' ) : '' );
+$street = ! empty( $address['street'] ) ? $address['street'] : '';
+$house_number = ! empty( $address['house_number'] ) ? $address['house_number'] : '';
+$zipcode = ! empty( $address['zipcode'] ) ? $address['zipcode'] : '';
+$city = ! empty( $address['city'] ) ? $address['city'] : '';
 
-$phone = ! empty( $contact['phone_number'] ) ? $contact['phone_number'] : ( function_exists( 'get_field' ) ? get_field( 'phone_number', 'option' ) : '' );
-$whatsapp = ! empty( $contact['whatsapp'] ) ? $contact['whatsapp'] : ( function_exists( 'get_field' ) ? get_field( 'whatsapp', 'option' ) : '' );
-$email = ! empty( $contact['emailadres'] ) ? $contact['emailadres'] : ( function_exists( 'get_field' ) ? get_field( 'emailadres', 'option' ) : '' );
+$phone = ! empty( $contact['phone_number'] ) ? $contact['phone_number'] : '';
+$whatsapp = ! empty( $contact['whatsapp'] ) ? $contact['whatsapp'] : '';
+$email = ! empty( $contact['emailadres'] ) ? $contact['emailadres'] : '';
 ?>
     </main>
         <footer class="site-footer">
