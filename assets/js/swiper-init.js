@@ -21,28 +21,4 @@ document.addEventListener('DOMContentLoaded', function () {
     new Swiper(uspsEl, options);
   });
 
- new Swiper(".reviews", {
-      slidesPerView: 1,
-      spaceBetween: 10,
-      loop: true,
-      navigation: {
-        nextEl: ".review-btn-next",
-        prevEl: ".review-btn-prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      breakpoints: {
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 40,
-        },
-        1400: {
-          slidesPerView: 3,
-          spaceBetween: 50,
-        },
-      },
-    });
-
 });
