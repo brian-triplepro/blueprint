@@ -274,7 +274,8 @@ body {
     gap: 10px;
     align-items: center;
   }
-  .site-header .header-actions .secondary-button, .site-header .header-actions .btn {
+  .site-header .header-actions .secondary-button,
+.site-header .header-actions .btn {
     padding: 8px 28px;
     font-size: 1rem;
   }
@@ -285,12 +286,10 @@ body {
     width: 100%;
     height: 100vh;
     background: var(--color-primary);
-    /* dark */
     color: var(--color-text-light);
     padding: 20px 18px 20px 18px;
     box-shadow: none;
     z-index: 1200;
-    /* make container a column so we can pin contact to bottom */
     flex-direction: column;
   }
   .site-header.mobile-open .mobile-mega {
@@ -323,21 +322,11 @@ body {
     padding: 0 14px;
     margin: 0 0 18px 0;
     flex: 1;
-    /* allow menu to grow and scroll */
     overflow: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* vertically centers menu when there's space */
     align-items: flex-start;
-    /* keep items left-aligned */
-    /* make top-level items a two-column grid: link / toggle */
-    /* nested items keep a similar but slightly narrower grid */
-    /* make the link fill the row and leave room for the toggle (in grid column 1) */
-    /* ensure submenus span both columns and don't overflow */
-    /* submenu card look (light panels on dark background) */
-    /* optional menu heading inside submenu (if you add a menu item with class 'menu-heading') */
-    /* chevron toggle now lives in the second grid column (non-absolute) */
   }
   .site-header .mobile-menu > li {
     margin-bottom: 12px;
@@ -346,7 +335,6 @@ body {
     align-items: center;
     gap: 12px;
     padding: 0;
-    /* links get their own padding */
     width: 100%;
   }
   .site-header .mobile-menu .sub-menu li {
@@ -367,8 +355,6 @@ body {
     box-sizing: border-box;
     width: 100%;
     grid-column: 1/-1;
-  }
-  .site-header .mobile-menu .sub-menu {
     list-style: none;
     padding: 8px;
     margin: 8px 0 0 0;
@@ -446,7 +432,6 @@ body {
   }
   .site-header .contact {
     margin-top: auto;
-    /* pin to bottom of the mobile menu */
     padding-top: 14px;
     border-top: 1px solid rgba(255, 255, 255, 0.04);
     padding-bottom: 50px;
@@ -466,17 +451,17 @@ body {
     color: var(--color-text-light);
     text-decoration: none;
   }
-  .site-header .contact .phone-and-email a .fa-regular, .site-header .contact .phone-and-email a .fa-sharp, .site-header .contact .phone-and-email a .fa-brands {
+  .site-header .contact .phone-and-email a .fa-regular,
+.site-header .contact .phone-and-email a .fa-sharp,
+.site-header .contact .phone-and-email a .fa-brands {
     color: var(--color-text-light);
     opacity: 0.9;
   }
 
-  /* prevent page scroll when menu open */
   body.no-scroll {
     overflow: hidden;
   }
 }
-/* Timed popup styles */
 .timed-popup {
   display: none;
 }
@@ -679,19 +664,16 @@ body {
 .swiper-wrapper {
   display: flex;
   align-items: stretch;
-  /* Forces equal height */
 }
 
 .swiper-slide {
   height: auto;
-  /* Required to override default 100% */
 }
 
 .swiper-slide > .review-card {
   height: 100%;
 }
 
-/*** Buttons ***/
 .btn {
   padding: 8px 32px;
   border: 2px solid;
@@ -759,7 +741,6 @@ body {
   color: var(--color-text-dark);
 }
 
-/* --- Colors --- */
 .bg-primary {
   background-color: var(--color-primary);
 }
