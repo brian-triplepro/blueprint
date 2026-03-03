@@ -1,149 +1,4 @@
 @charset "UTF-8";
-/* --- Colors --- */
-.bg-primary {
-  background-color: var(--color-primary);
-}
-.bg-secondary {
-  background-color: var(--color-secondary);
-}
-.bg-white {
-  background-color: #fff;
-}
-.bg-background {
-  background-color: var(--color-background);
-}
-.bg-accent {
-  background-color: var(--color-accent);
-}
-
-.text-light {
-  color: var(--color-text-light);
-}
-.text-dark {
-  color: var(--color-text-dark);
-}
-.text-accent {
-  color: var(--color-accent);
-}
-
-.editor-styles-wrapper {
-  font-family: var(--font-body);
-  font-size: var(--font-body-size);
-}
-
-.editor-styles-wrapper h1 {
-  font-family: var(--font-h1);
-  font-size: var(--font-h1-size);
-  font-weight: 700;
-}
-
-.editor-styles-wrapper h2 {
-  font-family: var(--font-h2);
-  font-size: var(--font-h2-size);
-  font-weight: 700;
-}
-
-.editor-styles-wrapper h3 {
-  font-family: var(--font-h3);
-  font-size: var(--font-h3-size);
-  font-weight: 700;
-}
-
-.wp-singular h1,
-.page h1 {
-  font-family: var(--font-h1);
-  font-size: var(--font-h1-size);
-  font-weight: 700;
-  line-height: 1;
-}
-
-.wp-singular h2,
-.page h2 {
-  margin-top: 0;
-  margin-bottom: 30px;
-  font-family: var(--font-h2);
-  font-size: var(--font-h2-size);
-  font-weight: 700;
-  line-height: 1;
-}
-
-.wp-singular h3,
-.page h3 {
-  margin-top: 0;
-  margin-bottom: 30px;
-  font-family: var(--font-h3);
-  font-size: var(--font-h3-size);
-  font-weight: 700;
-  line-height: 1;
-}
-
-.btn {
-  padding: 8px 32px;
-  border: 2px solid;
-  border-radius: var(--border-radius-btn, 20px);
-  font-size: var(--font-body-size);
-  cursor: pointer;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.3s ease;
-}
-.btn.primary {
-  background-color: var(--color-primary);
-  color: var(--color-text-light);
-  border: 2px solid var(--color-primary);
-}
-.btn.primary:hover {
-  background-color: transparent;
-  color: var(--color-primary);
-}
-.btn.primary-inv {
-  background-color: transparent;
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
-}
-.btn.primary-inv:hover {
-  background-color: var(--color-primary);
-  color: var(--color-text-light);
-}
-.btn.secondary {
-  background-color: var(--color-secondary);
-  color: var(--color-text-dark);
-  border: 2px solid var(--color-secondary);
-}
-.btn.secondary:hover {
-  border: 2px solid var(--color-primary);
-  background-color: var(--color-primary);
-  color: var(--color-secondary);
-}
-.btn.secondary-inv {
-  background-color: transparent;
-  color: var(--color-secondary);
-  border: 2px solid var(--color-secondary);
-}
-.btn.secondary-inv:hover {
-  background-color: var(--color-secondary);
-  color: var(--color-text-dark);
-}
-.btn.accent {
-  background-color: var(--color-accent);
-  color: var(--color-text-dark);
-  border: 2px solid var(--color-accent);
-}
-.btn.accent:hover {
-  background-color: transparent;
-  color: var(--color-accent);
-}
-.btn.accent-inv {
-  background-color: transparent;
-  color: var(--color-accent);
-  border: 2px solid var(--color-accent);
-}
-.btn.accent-inv:hover {
-  background-color: var(--color-accent);
-  color: var(--color-text-dark);
-}
-
 /**
  * Main SCSS for Blueprint theme
  *
@@ -834,4 +689,150 @@ body {
 
 .swiper-slide > .review-card {
   height: 100%;
+}
+
+/*** Buttons ***/
+.btn {
+  padding: 8px 32px;
+  border: 2px solid;
+  border-radius: var(--border-radius-btn, 20px);
+  font-size: var(--font-body-size);
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.btn.primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  border: 2px solid var(--color-primary);
+}
+.btn.primary:hover {
+  background-color: transparent;
+  color: var(--color-primary);
+}
+.btn.primary-inv {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+.btn.primary-inv:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+}
+.btn.secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-text-dark);
+  border: 2px solid var(--color-secondary);
+}
+.btn.secondary:hover {
+  border: 2px solid var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+.btn.secondary-inv {
+  background-color: transparent;
+  color: var(--color-secondary);
+  border: 2px solid var(--color-secondary);
+}
+.btn.secondary-inv:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-text-dark);
+}
+.btn.accent {
+  background-color: var(--color-accent);
+  color: var(--color-text-dark);
+  border: 2px solid var(--color-accent);
+}
+.btn.accent:hover {
+  background-color: transparent;
+  color: var(--color-accent);
+}
+.btn.accent-inv {
+  background-color: transparent;
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+}
+.btn.accent-inv:hover {
+  background-color: var(--color-accent);
+  color: var(--color-text-dark);
+}
+
+/* --- Colors --- */
+.bg-primary {
+  background-color: var(--color-primary);
+}
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+.bg-white {
+  background-color: #fff;
+}
+.bg-background {
+  background-color: var(--color-background);
+}
+.bg-accent {
+  background-color: var(--color-accent);
+}
+
+.text-light {
+  color: var(--color-text-light);
+}
+.text-dark {
+  color: var(--color-text-dark);
+}
+.text-accent {
+  color: var(--color-accent);
+}
+
+.editor-styles-wrapper {
+  font-family: var(--font-body);
+  font-size: var(--font-body-size);
+}
+
+.editor-styles-wrapper h1 {
+  font-family: var(--font-h1);
+  font-size: var(--font-h1-size);
+  font-weight: 700;
+}
+
+.editor-styles-wrapper h2 {
+  font-family: var(--font-h2);
+  font-size: var(--font-h2-size);
+  font-weight: 700;
+}
+
+.editor-styles-wrapper h3 {
+  font-family: var(--font-h3);
+  font-size: var(--font-h3-size);
+  font-weight: 700;
+}
+
+.wp-singular h1,
+.page h1 {
+  font-family: var(--font-h1);
+  font-size: var(--font-h1-size);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.wp-singular h2,
+.page h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-family: var(--font-h2);
+  font-size: var(--font-h2-size);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.wp-singular h3,
+.page h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-family: var(--font-h3);
+  font-size: var(--font-h3-size);
+  font-weight: 700;
+  line-height: 1;
 }
