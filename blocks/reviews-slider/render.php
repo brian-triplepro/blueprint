@@ -1,27 +1,26 @@
 <?php
 
-    if ( isset( $block['data']['is_preview'] ) && $block['data']['is_preview'] ) {
-        echo '<img src="' . esc_url( get_stylesheet_directory_uri() . '/blocks/' . basename( __DIR__ ) . '/screenshot.png') . '" alt="Preview" style="width: 100%; height: auto;" />';
-        return;
-    }
+  if ( isset( $block['data']['is_preview'] ) && $block['data']['is_preview'] ) {
+      echo '<img src="' . esc_url( get_stylesheet_directory_uri() . '/blocks/' . basename( __DIR__ ) . '/screenshot.png') . '" alt="Preview" style="width: 100%; height: auto;" />';
+      return;
+  }
 
-// Load ACF fields (matches json/acf-fields.json)
-$title = get_field( 'title' ) ?: '';
-$rm_bp = get_field( 'rm_bp' );
-$colors = get_field( 'colors' ) ?: array();
-$bg_color = $colors['bg_color'] ?? 'background';
-$title_color = $colors['title_color'] ?? 'dark';
-$text_color = $colors['text_color'] ?? 'dark';
-$card_color = $colors['block-color'] ?? 'secondary';
+  $title = get_field( 'title' ) ?: '';
+  $rm_bp = get_field( 'rm_bp' );
+  $colors = get_field( 'colors' ) ?: array();
+  $bg_color = $colors['bg_color'] ?? 'background';
+  $title_color = $colors['title_color'] ?? 'dark';
+  $text_color = $colors['text_color'] ?? 'dark';
+  $card_color = $colors['block-color'] ?? 'secondary';
 
-// Reviews are managed in options (see theme settings)
-$items = get_field( 'reviews', 'option' ) ?: array();
 
-// Build section classes (include block__ for JS/CSS consistency)
-$section_classes = 'blueprint-' . basename( __DIR__ ) . ' ' . 'block__' . basename( __DIR__ );
-$section_classes .= ' bg-' . $bg_color;
-$section_classes .= ' text-' . $text_color;
-if ( $rm_bp === true ) $section_classes .= ' pb-0';
+  $items = get_field( 'reviews', 'option' ) ?: array();
+
+
+  $section_classes = 'blueprint-' . basename( __DIR__ );
+  $section_classes .= ' bg-' . $bg_color;
+  $section_classes .= ' text-' . $text_color;
+  if ( $rm_bp === true ) $section_classes .= ' pb-0';
 
 ?>
 
@@ -120,6 +119,10 @@ if ( $rm_bp === true ) $section_classes .= ' pb-0';
         </div>
 
       </div>
+      <?php else : ?>
+        <div class="no-reviews text-center py-20 text-<?php echo esc_attr( $text_color ); ?>">
+          <p><i>Er zijn nog geen reviews toegevoegd. Voeg reviews toe via de thema instellingen.</i></p>
+        </div>
     <?php endif; ?>
   </div>
 </section>
@@ -127,7 +130,7 @@ if ( $rm_bp === true ) $section_classes .= ' pb-0';
 <script>
 (function() {
   function initReviewsSwiper() {
-    var reviewsEl = document.querySelector('.<?php echo 'block__' . basename( __DIR__ ); ?>  .reviews');
+    var reviewsEl = document.querySelector('.<?php echo 'blueprint-' . basename( __DIR__ ); ?>  .reviews');
     if (!reviewsEl) return;
     
     // Destroy existing instance if any
@@ -135,7 +138,7 @@ if ( $rm_bp === true ) $section_classes .= ' pb-0';
       reviewsEl.swiper.destroy(true, true);
     }
     
-    var container = reviewsEl.closest('.<?php echo 'block__' . basename( __DIR__ ); ?> ');
+    var container = reviewsEl.closest('.<?php echo 'blueprint-' . basename( __DIR__ ); ?> ');
     var slides = reviewsEl.querySelectorAll('.swiper-slide');
     var slideCount = slides.length;
 
