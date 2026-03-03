@@ -38,7 +38,7 @@
 <section class="<?= esc_attr( $section_classes ); ?>">
   <div class="container">
     <?php if ( ! empty( $team_members ) ) : ?>
-      <div class="team-header flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-10">
+      <div class="team-header flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-[20px]">
         <?php if ( $title ) : ?>
             <h2 class="text-2xl leading-tight m-0 text-<?php echo esc_attr( $title_color ); ?>"><?php echo wp_kses_post( $title ); ?></h2>
         <?php endif; ?>
@@ -76,6 +76,24 @@
               </article>
             </div>
           <?php endforeach; ?>
+           <?php foreach ( $team_members as $member ) :
+            $image_id = $member['image'] ?? null;
+            $name = $member['name'] ?? '';
+          ?>
+            <div class="swiper-slide">
+              <article class="team-member bg-<?php echo esc_attr( $card_background_color ); ?> text-<?php echo esc_attr( $card_text_color ); ?> rounded-[30px] overflow-hidden shadow-md transition-transform transition-shadow duration-300 hover:-translate-y-1 hover:shadow-lg relative mx-auto">
+                <?php if ( $image_id ) : ?>
+                  <div class="member-photo">
+                    <?php echo wp_get_attachment_image( $image_id, 'medium', false, array( 'loading' => 'lazy', 'class'=>'w-full h-auto object-cover aspect-[3/4]' ) ); ?>
+                  </div>
+                <?php endif; ?>
+
+                <?php if ( $name ) : ?>
+                  <div class="member-name absolute inset-x-0 bottom-0 text-lg font-semibold text-white text-center py-5 px-6 bg-gradient-to-t from-black/85 via-black/60 to-transparent z-10"><?php echo esc_html( $name ); ?></div>
+                <?php endif; ?>
+              </article>
+            </div>
+          <?php endforeach; ?>
         </div>
       </div>
 
@@ -96,7 +114,7 @@
     var teamEl = document.querySelector('.<?php echo 'blueprint-' . basename( __DIR__ ); ?>  .team-members');
     if (!teamEl) return;
     
-    // Destroy existing instance if any
+
     if (teamEl.swiper) {
       teamEl.swiper.destroy(true, true);
     }
@@ -107,6 +125,7 @@
 
     new Swiper(teamEl, {
       slidesPerView: '1',
+      loop: true,
       spaceBetween: 20,
       navigation: {
         nextEl: container.querySelector('.team-btn-next'),
