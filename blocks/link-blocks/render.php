@@ -45,7 +45,7 @@
 <section class="<?= esc_attr( $section_classes ); ?>">
     <div class="container">
         <?php if ( $title ) : ?>
-            <h2 <?php if ( function_exists('acf_inline_text_editing_attrs') ) echo acf_inline_text_editing_attrs('content.title'); ?> class="mb-[20px]">
+            <h2 <?php if ( function_exists('acf_inline_text_editing_attrs') ) echo acf_inline_text_editing_attrs('content.title'); ?> class="!mb-[30px]">
                 <?php echo esc_html( $title ); ?>
             </h2>
         <?php endif; ?>
@@ -88,8 +88,6 @@
                             $icon_type  = 'dashicons';
                             $icon_value = $raw_icon;
                         } else {
-
-                            // fallback to using raw class name if nothing else matches
                             $icon_type  = 'class';
                             $icon_value = $raw_icon;
                         }
