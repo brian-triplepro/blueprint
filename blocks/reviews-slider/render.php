@@ -1,8 +1,12 @@
 <?php
 
   if ( isset( $block['data']['is_preview'] ) && $block['data']['is_preview'] ) {
-      echo '<img src="' . esc_url( get_stylesheet_directory_uri() . '/blocks/' . basename( __DIR__ ) . '/screenshot.png') . '" alt="Preview" style="width: 100%; height: auto;" />';
-      return;
+    $screenshot_uri  = get_stylesheet_directory_uri() . '/blocks/' . basename( __DIR__ ) . '/images/preview.png';
+    $screenshot_file = get_stylesheet_directory() . '/blocks/' . basename( __DIR__ ) . '/images/preview.png';
+    if ( file_exists( $screenshot_file ) ) {
+          echo '<img src="' . esc_url( $screenshot_uri ) . '" alt="Preview" style="width:100%;height:auto;" />';
+          return;
+    }
   }
 
   $title = get_field( 'title' ) ?: '';
@@ -25,7 +29,7 @@
 ?>
 
 
-<section class="<?= $section_classes ?>" style="--reviews-card-bg: var(--color-<?php echo esc_attr( $card_color ); ?>);">
+<section class="<?= esc_attr( $section_classes ); ?>" style="--reviews-card-bg: var(--color-<?php echo esc_attr( $card_color ); ?>);">
   <div class="container mx-auto">
     <?php if ( ! empty( $items ) ) : ?>
       <div class="flex justify-between items-center mb-8 flex-wrap gap-5">

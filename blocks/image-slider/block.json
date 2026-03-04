@@ -3,7 +3,7 @@
     "title": "Image Slider",
     "description": "Afbeeldingen slider met navigatie",
     "category": "blueprint-blocks",
-    "icon": "images-alt2",
+    "icon": "screenoptions",
     
     "acf": {
         "blockVersion": 3,

@@ -3,7 +3,7 @@
     "title": "Post Overzicht",
     "description": "Overzicht van posts",
     "category": "blueprint-blocks",
-    "icon": "admin-post",
+    "icon": "screenoptions",
     
     "acf": {
         "blockVersion": 3,

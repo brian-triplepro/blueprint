@@ -3,7 +3,7 @@
     "title": "Reviews slider",
     "description": "Slider met reviews als kaarten",
     "category": "blueprint-blocks",
-    "icon": "admin-customizer",
+    "icon": "screenoptions",
     
     "acf": {
         "blockVersion": 3,

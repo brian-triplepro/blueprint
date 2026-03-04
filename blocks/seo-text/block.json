@@ -3,7 +3,7 @@
     "title": "Seo tekst",
     "description": "SEO-geoptimaliseerde tekstkolommen",
     "category": "blueprint-blocks",
-    "icon": "admin-post",
+    "icon": "screenoptions",
    
     "style": "file:./style/style.css",
     

@@ -3,7 +3,7 @@
     "title": "Contact Block",
     "description": "Contact formulier met bedrijfsgegevens en openingstijden",
     "category": "blueprint-blocks",
-    "icon": "email",
+    "icon": "screenoptions",
         
     "acf": {
         "blockVersion": 3,

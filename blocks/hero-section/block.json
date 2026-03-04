@@ -3,7 +3,7 @@
     "title": "Hero Section",
     "description": "Hero section with background image, overlay, and text.",
     "category": "blueprint-blocks",
-    "icon": "admin-customizer",
+    "icon": "screenoptions",
     
    "style": "file:./style/style.css",
     

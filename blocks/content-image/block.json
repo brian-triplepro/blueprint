@@ -3,7 +3,7 @@
     "title": "Afbeelding en tekst",
     "description": "Blok met afbeelding en tekst naast elkaar",
     "category": "blueprint-blocks",
-    "icon": "admin-customizer",
+    "icon": "screenoptions",
     
     "acf": {
         "blockVersion": 3,

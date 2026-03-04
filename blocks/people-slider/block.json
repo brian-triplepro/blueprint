@@ -3,7 +3,7 @@
     "title": "People Slider",
     "description": "Slider met team leden",
     "category": "blueprint-blocks",
-    "icon": "groups",
+    "icon": "screenoptions",
     
    "style": "file:./style/style.css",
     "editorStyle": "file:./style/editor-style.css",

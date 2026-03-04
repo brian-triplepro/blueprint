@@ -1,11 +1,11 @@
 <?php
   if ( isset( $block['data']['is_preview'] ) && $block['data']['is_preview'] ) {
-      $screenshot_uri  = get_stylesheet_directory_uri() . '/blocks/' . basename( __DIR__ ) . '/images/screenshot.png';
-      $screenshot_file = get_stylesheet_directory() . '/blocks/' . basename( __DIR__ ) . '/images/screenshot.png';
-      if ( file_exists( $screenshot_file ) ) {
+    $screenshot_uri  = get_stylesheet_directory_uri() . '/blocks/' . basename( __DIR__ ) . '/images/preview.png';
+    $screenshot_file = get_stylesheet_directory() . '/blocks/' . basename( __DIR__ ) . '/images/preview.png';
+    if ( file_exists( $screenshot_file ) ) {
           echo '<img src="' . esc_url( $screenshot_uri ) . '" alt="Preview" style="width:100%;height:auto;" />';
           return;
-      }
+    }
   }
 
     add_filter( 'acf/format_value/type=icon_picker', function( $value ) {
@@ -108,7 +108,7 @@
                 ?>
                     <div class="item bg-<?php echo esc_attr( $item_bg_color ); ?> text-<?php echo esc_attr( $item_text_color ); ?> p-[30px] rounded-[var(--border-radius-block)]">
                         <?php if ( $icon_value ) : ?>
-                            <div class="item-icon mb-[20px]">
+                            <div class="item-icon mb-[20px] inline-flex items-center justify-center w-[50px] h-[50px] bg-<?php echo esc_attr( $item_text_color ); ?> text-<?php echo esc_attr( $item_bg_color ); ?>">
                                 <?php if ( $icon_type === 'media_library' || $icon_type === 'url' || $icon_type === 'svg_file' ) : ?>
                                     <img src="<?php echo esc_url( $icon_value ); ?>" alt="" height="24" width="24" style="border-radius: 0;" />
                                 <?php elseif ( $icon_type === 'dashicons' ) : ?>

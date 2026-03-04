@@ -60,7 +60,7 @@ function blueprint_enqueue_block_editor_assets() {
     wp_enqueue_script( 'tailwind', 'https://cdn.tailwindcss.com/', array(), '3.4.17', false );
     wp_enqueue_script( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js', array(), '10.0.0', true );
     
-
+    wp_enqueue_style( 'dashicons' );
     wp_add_inline_style( 'blueprint-editor', $css );
 }
 

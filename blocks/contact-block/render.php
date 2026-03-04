@@ -1,10 +1,14 @@
 <?php
 
-    // Check if this is a preview in the block inserter
     if ( isset( $block['data']['is_preview'] ) && $block['data']['is_preview'] ) {
-        echo '<img src="' . esc_url( get_stylesheet_directory_uri() . '/blocks/' . basename( __DIR__ ) . '/screenshot.png') . '" alt="Preview" style="width: 100%; height: auto;" />';
-        return;
+        $screenshot_uri  = get_stylesheet_directory_uri() . '/blocks/' . basename( __DIR__ ) . '/images/preview.png';
+        $screenshot_file = get_stylesheet_directory() . '/blocks/' . basename( __DIR__ ) . '/images/preview.png';
+        if ( file_exists( $screenshot_file ) ) {
+            echo '<img src="' . esc_url( $screenshot_uri ) . '" alt="Preview" style="width:100%;height:auto;" />';
+            return;
+        }
     }
+
 
     // Load ACF field-values
     $title = get_field('title') ?: 'Contact';

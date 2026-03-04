@@ -3,7 +3,7 @@
     "title": "Afbeelding / Video blok",
     "description": "Afbeelding / Video blok",
     "category": "blueprint-blocks",
-    "icon": "location-alt",
+    "icon": "screenoptions",
     
     "acf": {
         "blockVersion": 3,

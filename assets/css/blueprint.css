@@ -30,7 +30,8 @@ img {
   border-radius: var(--border-radius-img, 0);
 }
 
-body {
+body.page,
+body.single {
   font-family: var(--font-body);
   font-size: var(--font-body-size);
   font-weight: 400;
@@ -767,29 +768,8 @@ body {
   color: var(--color-accent);
 }
 
-.editor-styles-wrapper {
-  font-family: var(--font-body);
-  font-size: var(--font-body-size);
-}
 
-.editor-styles-wrapper h1 {
-  font-family: var(--font-h1);
-  font-size: var(--font-h1-size);
-  font-weight: 700;
-}
-
-.editor-styles-wrapper h2 {
-  font-family: var(--font-h2);
-  font-size: var(--font-h2-size);
-  font-weight: 700;
-}
-
-.editor-styles-wrapper h3 {
-  font-family: var(--font-h3);
-  font-size: var(--font-h3-size);
-  font-weight: 700;
-}
-
+.wp-block h1,
 .wp-singular h1,
 .page h1 {
   font-family: var(--font-h1);
@@ -798,6 +778,7 @@ body {
   line-height: 1;
 }
 
+.wp-block h2,
 .wp-singular h2,
 .page h2 {
   margin-top: 0;
@@ -808,6 +789,7 @@ body {
   line-height: 1;
 }
 
+.wp-block h3,
 .wp-singular h3,
 .page h3 {
   margin-top: 0;

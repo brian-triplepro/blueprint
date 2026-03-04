@@ -3,7 +3,7 @@
     "title": "Link blokken",
     "description": "Repeater voor link blokken",
     "category": "blueprint-blocks",
-    "icon": "admin-customizer",
+    "icon": "screenoptions",
     
     "acf": {
         "blockVersion": 3,

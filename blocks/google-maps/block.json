@@ -3,7 +3,7 @@
     "title": "Google Maps",
     "description": "Google Maps blok met adres informatie",
     "category": "blueprint-blocks",
-    "icon": "location-alt",
+    "icon": "screenoptions",
     
     "acf": {
         "blockVersion": 3,
