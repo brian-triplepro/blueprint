@@ -7,5 +7,6 @@
  */
 ?>
 
-<?php get_template_part( 'template-parts/footers/footer', '1' ); ?>
+
+<?php get_template_part( 'template-parts/footers/footer-1/footer' ); ?>
 

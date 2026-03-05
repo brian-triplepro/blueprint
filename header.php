@@ -18,7 +18,7 @@
 <body <?php body_class(); ?>>
 
     <div id="page" class="site">
-        <?php get_template_part( 'template-parts/headers/header', '1' ); ?>
+        <?php get_template_part( 'template-parts/headers/header-1/header' ); ?>
         <main id="main" class="site-main">
 
 
