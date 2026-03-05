@@ -36,6 +36,8 @@
     $cta_style = $item_style['cta_style'] ?? 'primary';
     $item_bg_color = $item_style['bg_color'] ?? 'primary';
     $item_text_color = $item_style['text_color'] ?? 'light';
+    $item_icon_bg_color = $item_style['icon_bg_color'] ?? $item_text_color;
+    $item_icon_text_color = $item_style['icon_text_color'] ?? $item_bg_color;
 
     $items = get_field('items') ?: array();
 
@@ -49,13 +51,13 @@
 <section class="<?= esc_attr( $section_classes ); ?>">
     <div class="container">
         <?php if ( $title ) : ?>
-            <h2 <?php if ( function_exists('acf_inline_text_editing_attrs') ) echo acf_inline_text_editing_attrs('content.title'); ?> class="!mb-[30px]">
+            <h2 <?php if ( function_exists('acf_inline_text_editing_attrs') ) echo acf_inline_text_editing_attrs('content.title'); ?> class="!mb-[20px]">
                 <?php echo esc_html( $title ); ?>
             </h2>
         <?php endif; ?>
 
         <?php if ( $text ) : ?>
-            <div class="text">
+            <div class="text mb-[40px]" <?php if ( function_exists('acf_inline_text_editing_attrs') ) echo acf_inline_text_editing_attrs('content.text'); ?>>
                 <div>
                 <?php echo wp_kses_post( $text ); ?>
                 </div>
@@ -108,7 +110,7 @@
                 ?>
                     <div class="item bg-<?php echo esc_attr( $item_bg_color ); ?> text-<?php echo esc_attr( $item_text_color ); ?> p-[30px] rounded-[var(--border-radius-block)]">
                         <?php if ( $icon_value ) : ?>
-                            <div class="item-icon mb-[20px] inline-flex items-center justify-center w-[50px] h-[50px] bg-<?php echo esc_attr( $item_text_color ); ?> text-<?php echo esc_attr( $item_bg_color ); ?>">
+                            <div class="item-icon mb-[20px] inline-flex items-center rounded-[10px] justify-center w-[50px] h-[50px] bg-<?php echo esc_attr( $item_icon_bg_color ); ?> text-<?php echo esc_attr( $item_icon_text_color ); ?>">
                                 <?php if ( $icon_type === 'media_library' || $icon_type === 'url' || $icon_type === 'svg_file' ) : ?>
                                     <img src="<?php echo esc_url( $icon_value ); ?>" alt="" height="24" width="24" style="border-radius: 0;" />
                                 <?php elseif ( $icon_type === 'dashicons' ) : ?>

@@ -269,6 +269,68 @@
                         "placeholder": "",
                         "create_options": 0,
                         "save_options": 0
+                    },
+                    {
+                        "key": "field_69986ae32d190",
+                        "label": "Icon achtergrond",
+                        "name": "icon_bg_color",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "Kleur voor het icoon achtergrondvak",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "primary": "Primair",
+                            "secondary": "Secundair",
+                            "accent": "Accent",
+                            "background": "Achtergrond",
+                            "white": "Wit"
+                        },
+                        "default_value": false,
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
+                    },
+                    {
+                        "key": "field_69986ae32d191",
+                        "label": "Icon kleur",
+                        "name": "icon_text_color",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "Kleur voor het icoon zelf",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "dark": "Donkere tekst",
+                            "light": "Lichte tekst",
+                            "accent": "Accent"
+                        },
+                        "default_value": false,
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
                     }
                 ]
             },
