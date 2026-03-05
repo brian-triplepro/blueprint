@@ -24,9 +24,34 @@ $email = ! empty( $contact['emailadres'] ) ? $contact['emailadres'] : '';
                 <div class="footer-top">
                     <div class="footer-brand">
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="footer-logo"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></a>
-                        <p class="footer-follow"><?php esc_html_e( 'Volg ons', 'blueprint' ); ?></p>
-                        
 
+                        <?php
+                        $social = function_exists( 'get_field' ) ? ( get_field( 'social_media_links', 'option' ) ?: array() ) : array();
+                        $social_platforms = array(
+                            'instagram' => array( 'label' => 'Instagram',  'icon' => 'fa-instagram.svg' ),
+                            'facebook'  => array( 'label' => 'Facebook',   'icon' => 'fa-facebook.svg' ),
+                            'linkedin'  => array( 'label' => 'LinkedIn',   'icon' => 'fa-linkedin-in.svg' ),
+                            'x_twitter' => array( 'label' => 'X / Twitter','icon' => 'fa-twitter.svg' ),
+                            'tiktok'    => array( 'label' => 'TikTok',     'icon' => 'fa-tiktok.svg' ),
+                        );
+                        $has_social = false;
+                        foreach ( $social_platforms as $key => $platform ) {
+                            if ( ! empty( $social[ $key ] ) ) { $has_social = true; break; }
+                        }
+                        if ( $has_social ) : ?>
+                        <p class="footer-follow"><?php esc_html_e( 'Volg ons', 'blueprint' ); ?></p>
+                        <div class="footer-social">
+                            <?php foreach ( $social_platforms as $key => $platform ) :
+                                if ( empty( $social[ $key ] ) ) continue; ?>
+                                <a href="<?php echo esc_url( $social[ $key ] ); ?>" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="<?php echo esc_attr( $platform['label'] ); ?>">
+                                    <span class="social-icon"><?php
+                                    $svg_path = get_template_directory() . '/assets/icons/brands/' . $platform['icon'];
+                                    if ( file_exists( $svg_path ) ) echo file_get_contents( $svg_path ); // phpcs:ignore WordPress.Security.EscapeOutput
+                                    ?></span>
+                                </a>
+                            <?php endforeach; ?>
+                        </div>
+                        <?php endif; ?>
                     </div>
 
                     <div class="footer-column">
