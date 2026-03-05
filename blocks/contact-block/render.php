@@ -45,14 +45,14 @@
     <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
         <div>
             <?php if ( $form_shortcode ) : ?>
-                <div class="bg-<?php echo esc_attr( $form_background_color ); ?> text-<?php echo esc_attr( $form_text_color ); ?> p-8 rounded-lg shadow">
+                <div class="bg-<?php echo esc_attr( $form_background_color ); ?> text-<?php echo esc_attr( $form_text_color ); ?> p-8 shadow" style="border-radius: var(--border-radius-block)">
                     <?php if ( $title ) : ?>
                         <h2 class="mb-6 font-semibold"><?php echo esc_html( $title ); ?></h2>
                     <?php endif; ?>
                     <?php echo do_shortcode( $form_shortcode ); ?>
                 </div>
             <?php else : ?>
-                <div class="p-8 bg-gray-100 rounded-lg text-center">
+                <div class="p-8 bg-gray-100 text-center" style="border-radius: var(--border-radius-block)">
                     <p>Voeg een formulier shortcode toe in de blok instellingen.</p>
                 </div>
             <?php endif; ?>
