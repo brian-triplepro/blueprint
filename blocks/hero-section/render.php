@@ -58,11 +58,11 @@ if ($image_id) {
 
     <div class="container mt-[100px] relative z-2">
       <?php if ($title) : ?>
-                <h1 class="mb-[30px]"><?php echo esc_html($title); ?></h1>
+                <h1 class="mb-[30px] max-w-[800px] leading-2"><?php echo esc_html($title); ?></h1>
             <?php endif; ?>
 
         <?php if ( $text ) : ?>
-            <div class="intro mb-[30px]" <?php if ( function_exists( 'acf_inline_text_editing_attrs' ) ) echo acf_inline_text_editing_attrs( 'intro_tekst' ); ?>>
+            <div class="intro mb-[30px] max-w-[800px]" <?php if ( function_exists( 'acf_inline_text_editing_attrs' ) ) echo acf_inline_text_editing_attrs( 'intro_tekst' ); ?>>
                 <?php echo wp_kses_post( $text ); ?>
             </div>
         <?php endif; ?>
