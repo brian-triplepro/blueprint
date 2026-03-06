@@ -400,7 +400,7 @@ add_filter('site_transient_update_themes', function ($transient) {
     if (preg_match('/Version:\s*([0-9.]+)/i', $remote_css, $matches)) {
       $remote_version = trim($matches[1]);
 
-      $zip_url = 'https://github.com/brian-triplepro/' . $theme_slug . '/releases/download/v' . $remote_version . '/' . $theme_slug . '.zip';
+      $zip_url = 'https://github.com/brian-triplepro/' . $theme_slug . '/releases/download/' . $remote_version . '/' . $theme_slug . '.zip';
 
       if (version_compare($theme->get('Version'), $remote_version, '<')) {
             $transient->response[$theme_slug] = [
