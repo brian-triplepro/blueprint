@@ -95,6 +95,12 @@ body.single {
   font-size: 1.5rem;
   text-decoration: none;
 }
+.site-header .site-branding .custom-logo-link img,
+.site-header .site-branding .custom-logo {
+  max-width: 200px;
+  border-radius: 0;
+  height: auto;
+}
 .site-header .inner-header {
   margin: 30px auto;
   border-radius: 50px;

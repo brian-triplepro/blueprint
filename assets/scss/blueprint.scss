@@ -99,6 +99,14 @@ body.single {
     font-weight: 600;
     font-size: 1.5rem;
     text-decoration: none;
+
+    .custom-logo-link img,
+    .custom-logo {
+      max-width: 200px;
+      border-radius: 0;
+      height: auto;
+
+    }
   }
 
   .inner-header {

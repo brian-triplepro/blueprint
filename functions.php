@@ -13,6 +13,14 @@ function blueprint_setup() {
     add_theme_support( 'align-wide' );
     add_editor_style( 'assets/css/blueprint-admin.css' );  
 
+    // enable custom logo support with flexible dimensions
+    add_theme_support( 'custom-logo', array(
+        'height'      => 100,
+        'width'       => 200,
+        'flex-height' => true,
+        'flex-width'  => true,
+    ) );
+
     add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
     register_nav_menus( array(
         'primary' => __( 'Primary Menu', 'blueprint' ),
