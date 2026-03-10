@@ -465,8 +465,8 @@ body.single {
   }
 }
 .site-footer {
-  background-color: var(--color-primary);
-  color: var(--color-text-light);
+  background-color: var(--color-footer-bg);
+  color: var(--color-footer-text);
   padding: 56px 20px 36px;
 }
 .site-footer .container {
@@ -486,13 +486,13 @@ body.single {
   font-size: 50px;
   font-weight: 800;
   line-height: 1;
-  color: var(--color-text-light);
+  color: var(--color-footer-text);
   text-decoration: none;
   display: inline-block;
   margin-bottom: 18px;
 }
 .site-footer .footer-brand .footer-follow {
-  color: var(--color-text-light);
+  color: var(--color-footer-text);
   opacity: 0.95;
   margin-top: 8px;
   font-weight: 600;
@@ -503,7 +503,7 @@ body.single {
   gap: 12px;
 }
 .site-footer .footer-brand .footer-social .social-link {
-  color: var(--color-text-light);
+  color: var(--color-footer-text);
   opacity: 0.9;
   transition: opacity 0.2s;
 }
@@ -528,6 +528,7 @@ body.single {
   margin: 0 0 18px 0;
 }
 .site-footer .footer-column .footer-menu {
+  color: var(--color-footer-text);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -536,7 +537,7 @@ body.single {
   margin-bottom: 14px;
 }
 .site-footer .footer-column .footer-menu li a {
-  color: var(--color-text-light);
+  color: var(--color-footer-text);
   text-decoration: none;
   opacity: 0.95;
   display: inline-block;
@@ -547,7 +548,7 @@ body.single {
   text-decoration: underline;
 }
 .site-footer .footer-column .footer-contact {
-  color: var(--color-text-light);
+  color: var(--color-footer-text);
 }
 .site-footer .footer-column .footer-contact .company {
   font-weight: 700;
@@ -560,7 +561,7 @@ body.single {
   margin-bottom: 8px;
 }
 .site-footer .footer-column .footer-contact a {
-  color: var(--color-text-light);
+  color: var(--color-footer-text);
   text-decoration: none;
 }
 .site-footer .footer-bottom {
@@ -573,7 +574,7 @@ body.single {
 }
 .site-footer .footer-bottom p {
   margin: 0;
-  color: var(--color-text-light);
+  color: var(--color-footer-text);
   opacity: 0.95;
 }
 .site-footer .footer-bottom .footer-logos {

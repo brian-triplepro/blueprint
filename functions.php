@@ -49,8 +49,11 @@ function blueprint_enqueue_scripts() {
     wp_enqueue_script( 'tailwind', 'https://cdn.tailwindcss.com/', array(), '', false );
     wp_enqueue_style( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css', array(), '10.0.0');
     wp_enqueue_style( 'blueprint', get_template_directory_uri() . '/assets/css/blueprint.css', array(), '', 'all' );
+    // attach dynamic CSS variables to the main stylesheet so changes from options take effect on the front end
+    wp_add_inline_style( 'blueprint', blueprint_get_theme_vars_css() );
+
     wp_enqueue_script( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js', array(), '10.0.0', true );
-   
+    
     wp_enqueue_script( 'swiper-init', get_template_directory_uri() . '/assets/js/swiper-init.js', array( 'swiper' ), '', true );
     wp_enqueue_script( 'blueprint', get_template_directory_uri() . '/assets/js/blueprint.js', array(), '', true );
 }
@@ -78,27 +81,41 @@ add_action( 'enqueue_block_assets', 'blueprint_enqueue_block_editor_assets', 20 
 if ( function_exists( 'acf_add_local_field_group' ) ) {
     add_action( 'acf/init', function() {
         $blocks_dir = get_template_directory() . '/blocks';
-        if ( ! is_dir( $blocks_dir ) ) {
-            return;
+        if ( is_dir( $blocks_dir ) ) {
+            $folders = glob( $blocks_dir . '/*', GLOB_ONLYDIR );
+            foreach ( $folders as $folder ) {
+                $file = $folder . '/json/acf-fields.json';
+                if ( ! file_exists( $file ) ) {
+                    continue;
+                }
+
+                $json = json_decode( file_get_contents( $file ), true );
+                if ( ! is_array( $json ) ) {
+                    continue;
+                }
+
+                foreach ( $json as $group ) {
+                    if ( isset( $group['active'] ) && ! $group['active'] ) {
+                        $group['active'] = 1;
+                    }
+                    acf_add_local_field_group( $group );
+                }
+            }
         }
 
-        $folders = glob( $blocks_dir . '/*', GLOB_ONLYDIR );
-        foreach ( $folders as $folder ) {
-            $file = $folder . '/json/acf-fields.json';
-            if ( ! file_exists( $file ) ) {
-                continue;
-            }
-
-            $json = json_decode( file_get_contents( $file ), true );
-            if ( ! is_array( $json ) ) {
-                continue;
-            }
-
-            foreach ( $json as $group ) {
-                acf_add_local_field_group( $group );
+        $settings_file = get_template_directory() . '/settings/acf-fields.json';
+        if ( file_exists( $settings_file ) ) {
+            $json = json_decode( file_get_contents( $settings_file ), true );
+            if ( is_array( $json ) ) {
+                foreach ( $json as $group ) {
+                    if ( isset( $group['active'] ) && ! $group['active'] ) {
+                        $group['active'] = 1;
+                    }
+                    acf_add_local_field_group( $group );
+                }
             }
         }
-    }, 5 );
+    }, 20 );
 }
 
 
@@ -146,6 +163,8 @@ function blueprint_get_theme_vars_css() {
     $accent = '#e6f972';
     $text_light = '#ffffff';
     $text_dark = '#01313d';
+    $footer_bg = '#01313d';
+    $footer_text = '#ffffff';
 
     $body_family = 'system-ui, sans-serif';
     $body_size = 16;
@@ -168,6 +187,8 @@ function blueprint_get_theme_vars_css() {
             if ( ! empty( $colors['accent'] ) ) $accent = '#' . ltrim( $colors['accent'], '#' );
             if ( ! empty( $colors['light_font'] ) ) $text_light = '#' . ltrim( $colors['light_font'], '#' );
             if ( ! empty( $colors['dark_font'] ) ) $text_dark = '#' . ltrim( $colors['dark_font'], '#' );
+            if ( ! empty( $colors['footer_bg'] ) ) $footer_bg = '#' . ltrim( $colors['footer_bg'], '#' );
+            if ( ! empty( $colors['footer_text'] ) ) $footer_text = '#' . ltrim( $colors['footer_text'], '#' );
         }
 
         $fonts = get_field( 'fonts', 'option' );
@@ -211,6 +232,8 @@ function blueprint_get_theme_vars_css() {
             --color-accent: {$accent};
             --color-text-light: {$text_light};
             --color-text-dark: {$text_dark};
+            --color-footer-bg: {$footer_bg};
+            --color-footer-text: {$footer_text};
 
             --font-body: '{$body_family}', sans-serif;
             --font-body-size: {$body_size}px;
@@ -435,3 +458,16 @@ add_filter('auto_update_theme', function ($should_update, $item) {
     return $should_update;
 
 }, 10, 2);
+
+
+if ( function_exists( 'acf_add_local_field_group' ) ) {
+    add_filter( 'acf/settings/load_json', function( $paths ) {
+        $paths[] = get_stylesheet_directory() . '/settings';
+        $paths[] = get_template_directory() . '/settings';
+        return $paths;
+    } );
+
+    add_filter( 'acf/settings/save_json', function( $path ) {
+        return get_stylesheet_directory() . '/settings';
+    } );
+}

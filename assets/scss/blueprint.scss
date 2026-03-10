@@ -514,8 +514,8 @@ body.single {
 }
 
 .site-footer {
-  background-color: var(--color-primary);
-  color: var(--color-text-light);
+  background-color: var(--color-footer-bg);
+  color: var(--color-footer-text);
   padding: 56px 20px 36px;
 
   .container {
@@ -535,14 +535,14 @@ body.single {
       font-size: 50px;
       font-weight: 800;
       line-height: 1;
-      color: var(--color-text-light);
+      color: var(--color-footer-text);
       text-decoration: none;
       display: inline-block;
       margin-bottom: 18px;
     }
 
     .footer-follow {
-      color: var(--color-text-light);
+      color: var(--color-footer-text);
       opacity: 0.95;
       margin-top: 8px;
       font-weight: 600;
@@ -556,7 +556,7 @@ body.single {
     }
 
     .footer-social .social-link {
-      color: var(--color-text-light);
+      color: var(--color-footer-text);
       opacity: 0.9;
       transition: opacity 0.2s;
     }
@@ -586,6 +586,7 @@ body.single {
     }
 
     .footer-menu {
+      color: var(--color-footer-text);
       list-style: none;
       margin: 0;
       padding: 0;
@@ -594,7 +595,7 @@ body.single {
         margin-bottom: 14px;
 
         a {
-          color: var(--color-text-light);
+          color: var(--color-footer-text);
           text-decoration: none;
           opacity: 0.95;
           display: inline-block;
@@ -610,7 +611,7 @@ body.single {
     }
 
     .footer-contact {
-      color: var(--color-text-light);
+      color: var(--color-footer-text);
 
       .company {
         font-weight: 700;
@@ -625,7 +626,7 @@ body.single {
       }
 
       a {
-        color: var(--color-text-light);
+        color: var(--color-footer-text);
         text-decoration: none;
       }
     }
@@ -641,7 +642,7 @@ body.single {
 
     p {
       margin: 0;
-      color: var(--color-text-light);
+      color: var(--color-footer-text);
       opacity: 0.95;
     }
 
