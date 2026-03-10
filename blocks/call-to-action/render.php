@@ -12,7 +12,8 @@
 
     $colors = get_field('colors') ?: array();
     $bg_color = $colors['bg_color'] ?? 'background';
-    $color = $colors['text_color'] ?? 'dark';
+
+    $text_color = $colors['text_color'] ?? 'dark';
 
     $content = get_field('content') ?: array();
     $title = $content['title'] ?? '';
@@ -21,7 +22,14 @@
     $image_group = get_field('image') ?: array();
     $image = $image_group['image'] ?? null;
     $image_position = $image_group['image_position'] ?? 'left';
-    if ( $image_position === 'left' ) { $order = 1; } else { $order = 2; }
+   
+    if ( $image_position === 'left' ) {
+        $image_order = 'order-2 lg:order-1';
+        $text_order  = 'order-1 lg:order-2';
+    } else {
+        $image_order = 'order-2 lg:order-2';
+        $text_order  = 'order-1 lg:order-1';
+    }
 
     $placeholder = get_template_directory_uri() . '/assets/images/placeholder.png';
     $image_url = $image ? wp_get_attachment_url( $image ) : false;
@@ -38,14 +46,17 @@
     $section_classes .= ' bg-' . $bg_color;
     $section_classes .= ' text-' . $text_color;
     if ( get_field( 'rm_pb' ) === true )  $section_classes .= ' pb-0';
+
+    // grid template: image on left or right at large sizes
+    $grid_cols = $image_position === 'right' ? 'lg:grid-cols-[1fr_auto]' : 'lg:grid-cols-[auto_1fr]';
 ?>
 
 <section class="<?= esc_attr( $section_classes ); ?>">
-    <div class="container grid lg:grid-cols-[auto_1fr] items-center justify-center gap-[30px] lg:gap-[100px]">
-        <div class="max-w-[350px] order-2 lg:order-<?php echo esc_attr( $order ); ?>">
+    <div class="container grid <?php echo esc_attr( $grid_cols ); ?> items-center justify-center gap-[30px] lg:gap-[100px]">
+        <div class="max-w-[350px] <?php echo esc_attr( $image_order ); ?>">
              <img src="<?php echo esc_url( $image_src ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>" class="w-full" />
         </div>
-        <div class="order-1 lg:order-<?php echo esc_attr( $order === 1 ? 2 : 1 ); ?>">
+        <div class="<?php echo esc_attr( $text_order ); ?>">
             <?php if ( $title ) : ?>
                 <h2 <?php echo acf_inline_text_editing_attrs( 'content.title' ); ?> class="mb-[30px]">
                     <?php echo esc_html( $title ); ?>
