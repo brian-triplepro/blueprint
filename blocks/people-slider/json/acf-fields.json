@@ -71,7 +71,7 @@
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "33",
+                            
                             "class": "",
                             "id": ""
                         },
@@ -102,7 +102,7 @@
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "33",
+                            
                             "class": "",
                             "id": ""
                         },
@@ -199,7 +199,7 @@
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "33",
+                            
                             "class": "",
                             "id": ""
                         },
@@ -220,7 +220,7 @@
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "33",
+                            
                             "class": "",
                             "id": ""
                         },
@@ -253,7 +253,7 @@
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "33",
+                            
                             "class": "",
                             "id": ""
                         },
