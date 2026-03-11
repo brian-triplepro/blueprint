@@ -88,10 +88,10 @@
 
 <section class="<?= esc_attr( $section_classes ); ?>">
   <div class="container">
-    <?php if ( ! empty( $grouped ) ) : ?>
-      <?php if ( $title ) : ?>
+     <?php if ( $title ) : ?>
           <h2 class="text-2xl leading-tight !mb-[50px] text-center  text-<?php echo esc_attr( $title_color ); ?>"><?php echo wp_kses_post( $title ); ?></h2>
       <?php endif; ?>
+    <?php if ( ! empty( $grouped ) ) : ?>
 
       <?php foreach ( $grouped as $dept => $members ) :
             $heading = $dept !== '' ? $dept : __( 'Overige', 'blueprint' );

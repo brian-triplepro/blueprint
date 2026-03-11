@@ -28,6 +28,7 @@
                 "key": "field_medewerkers_title",
                 "label": "Titel",
                 "name": "title",
+                "value": "De medewerkers van [bedrijfsnaam]",
                 "aria-label": "",
                 "type": "text",
                 "instructions": "",
