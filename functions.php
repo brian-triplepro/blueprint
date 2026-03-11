@@ -413,6 +413,12 @@ if ( function_exists('get_field')) {
     }
 }
 
+if ( function_exists('get_field')) { 
+    if ( get_field('activate_employee_cpt', 'option') ) {
+        require_once get_template_directory() . '/inc/medewerkers-cpt.php';
+    }
+}
+
 add_filter('site_transient_update_themes', function ($transient) {
     if (empty($transient->checked)) return $transient;
 
