@@ -11,7 +11,35 @@
     
   // Load ACF field-values and assign defaults.
   $title = get_field( 'title' );
-  $team_members = get_field( 'team_members', 'option' );
+
+  // fetch medewerkers posts instead of options repeater
+  $employees = get_posts( array(
+      'post_type'      => 'medewerkers',
+      'posts_per_page' => -1,
+      'orderby'        => 'menu_order title',
+      'order'          => 'ASC',
+  ) );
+
+  $team_members = array();
+  if ( ! empty( $employees ) ) {
+      foreach ( $employees as $emp ) {
+          $image_id = get_post_thumbnail_id( $emp->ID );
+          // fallback to title if custom name not set
+          $name = get_field( 'employee_name', $emp->ID );
+          if ( ! $name ) {
+              $name = get_the_title( $emp );
+          }
+
+          $team_members[] = array(
+              'image'    => $image_id,
+              'name'     => $name,
+              'email'    => get_field( 'employee_email', $emp->ID ),
+              'phone'    => get_field( 'employee_phone', $emp->ID ),
+              'linkedin' => get_field( 'employee_linkedin', $emp->ID ),
+              'url'      => get_permalink( $emp->ID ),
+          );
+      }
+  }
 
   $colors = get_field( 'colors' ) ?: array();
   $background_color = $colors['bg_color'] ?? 'background';
@@ -65,9 +93,13 @@
           <?php foreach ( $team_members as $member ) :
             $image_id = $member['image'] ?? null;
             $name = $member['name'] ?? '';
+            $email = $member['email'] ?? '';
+            $phone = $member['phone'] ?? '';
+            $linkedin = $member['linkedin'] ?? '';
+            $profile_url = $member['url'] ?? '';
           ?>
             <div class="swiper-slide">
-              <article class="team-member bg-<?php echo esc_attr( $card_background_color ); ?> text-<?php echo esc_attr( $card_text_color ); ?> rounded-[30px] overflow-hidden shadow-md transition-transform transition-shadow duration-300 hover:-translate-y-1 hover:shadow-lg relative mx-auto">
+              <article class="team-member bg-<?php echo esc_attr( $card_background_color ); ?> text-<?php echo esc_attr( $card_text_color ); ?> rounded-[30px] overflow-hidden shadow-md  hover:shadow-lg relative mx-auto">
                 <?php if ( $image_id ) : ?>
                   <div class="member-photo">
                     <?php echo wp_get_attachment_image( $image_id, 'medium', false, array( 'loading' => 'lazy', 'class'=>'w-full h-auto object-cover aspect-[3/4]' ) ); ?>
@@ -75,26 +107,31 @@
                 <?php endif; ?>
 
                 <?php if ( $name ) : ?>
-                  <div class="member-name absolute inset-x-0 bottom-0 text-lg font-semibold text-white text-center py-5 px-6 bg-gradient-to-t from-black/85 via-black/60 to-transparent z-10"><?php echo esc_html( $name ); ?></div>
-                <?php endif; ?>
-              </article>
-            </div>
-          <?php endforeach; ?>
-           <?php foreach ( $team_members as $member ) :
-            $image_id = $member['image'] ?? null;
-            $name = $member['name'] ?? '';
-          ?>
-            <div class="swiper-slide">
-              <article class="team-member bg-<?php echo esc_attr( $card_background_color ); ?> text-<?php echo esc_attr( $card_text_color ); ?> rounded-[30px] overflow-hidden shadow-md transition-transform transition-shadow duration-300 hover:-translate-y-1 hover:shadow-lg relative mx-auto">
-                <?php if ( $image_id ) : ?>
-                  <div class="member-photo">
-                    <?php echo wp_get_attachment_image( $image_id, 'medium', false, array( 'loading' => 'lazy', 'class'=>'w-full h-auto object-cover aspect-[3/4]' ) ); ?>
+                  <div class="member-name absolute inset-x-0 bottom-0 text-lg font-semibold text-white text-center py-5 px-6 bg-gradient-to-t from-black/85 via-black/60 to-transparent z-10">
+                    <?php echo esc_html( $name ); ?>
+
+                    <?php if ( $email || $phone || $linkedin ) : ?>
+                      <div class="member-icons flex justify-center gap-3 mt-2">
+                        <?php if ( $email ) : ?>
+                          <a href="mailto:<?php echo esc_attr( $email ); ?>" class="contact-icon text-white" aria-label="<?php esc_attr_e( 'E-mail', 'blueprint' ); ?>">
+                            <span class="dashicons dashicons-email" aria-hidden="true"></span>
+                          </a>
+                        <?php endif; ?>
+                        <?php if ( $phone ) : ?>
+                          <a href="tel:<?php echo esc_attr( $phone ); ?>" class="contact-icon text-white" aria-label="<?php esc_attr_e( 'Telefoon', 'blueprint' ); ?>">
+                            <span class="dashicons dashicons-phone" aria-hidden="true"></span>
+                          </a>
+                        <?php endif; ?>
+                        <?php if ( $linkedin ) : ?>
+                          <a href="<?php echo esc_url( $linkedin ); ?>" class="contact-icon text-white" target="_blank" rel="noopener" aria-label="<?php esc_attr_e( 'LinkedIn', 'blueprint' ); ?>">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 640 640"><path d="M196.3 512L103.4 512L103.4 212.9L196.3 212.9L196.3 512zM149.8 172.1C120.1 172.1 96 147.5 96 117.8C96 103.5 101.7 89.9 111.8 79.8C121.9 69.7 135.6 64 149.8 64C164 64 177.7 69.7 187.8 79.8C197.9 89.9 203.6 103.6 203.6 117.8C203.6 147.5 179.5 172.1 149.8 172.1zM543.9 512L451.2 512L451.2 366.4C451.2 331.7 450.5 287.2 402.9 287.2C354.6 287.2 347.2 324.9 347.2 363.9L347.2 512L254.4 512L254.4 212.9L343.5 212.9L343.5 253.7L344.8 253.7C357.2 230.2 387.5 205.4 432.7 205.4C526.7 205.4 544 267.3 544 347.7L544 512L543.9 512z" fill="#fff" /></svg>
+                          </a>
+                        <?php endif; ?>
+                      </div>
+                    <?php endif; ?>
                   </div>
                 <?php endif; ?>
 
-                <?php if ( $name ) : ?>
-                  <div class="member-name absolute inset-x-0 bottom-0 text-lg font-semibold text-white text-center py-5 px-6 bg-gradient-to-t from-black/85 via-black/60 to-transparent z-10"><?php echo esc_html( $name ); ?></div>
-                <?php endif; ?>
               </article>
             </div>
           <?php endforeach; ?>
