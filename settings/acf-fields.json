@@ -1247,95 +1247,6 @@
                 ]
             },
             {
-                "key": "field_team_tab",
-                "label": "Team",
-                "name": "",
-                "aria-label": "",
-                "type": "tab",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "placement": "left",
-                "endpoint": 0,
-                "selected": 0
-            },
-            {
-                "key": "field_team_members_repeater",
-                "label": "Team leden",
-                "name": "team_members",
-                "aria-label": "",
-                "type": "repeater",
-                "instructions": "Beheer hier de team leden die in de Medewerkers slider gebruikt kunnen worden.",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "layout": "row",
-                "pagination": 0,
-                "min": 0,
-                "max": 0,
-                "collapsed": "field_team_member_name_opt",
-                "button_label": "Nieuwe medewerker",
-                "rows_per_page": 20,
-                "sub_fields": [
-                    {
-                        "key": "field_team_member_image_opt",
-                        "label": "Foto",
-                        "name": "image",
-                        "aria-label": "",
-                        "type": "image",
-                        "instructions": "",
-                        "required": false,
-                        "conditional_logic": false,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "return_format": "id",
-                        "preview_size": "medium",
-                        "library": "all",
-                        "min_width": 0,
-                        "min_height": 0,
-                        "min_size": 0,
-                        "max_width": 0,
-                        "max_height": 0,
-                        "max_size": 0,
-                        "mime_types": "",
-                        "parent_repeater": "field_team_members_repeater"
-                    },
-                    {
-                        "key": "field_team_member_name_opt",
-                        "label": "Naam",
-                        "name": "name",
-                        "aria-label": "",
-                        "type": "text",
-                        "instructions": "",
-                        "required": false,
-                        "conditional_logic": false,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "maxlength": "",
-                        "placeholder": "Voornaam Achternaam",
-                        "prepend": "",
-                        "append": "",
-                        "parent_repeater": "field_team_members_repeater"
-                    }
-                ]
-            },
-            {
                 "key": "field_reviews_tab",
                 "label": "Reviews",
                 "name": "",
@@ -1532,6 +1443,27 @@
                 "ui_on_text": "",
                 "ui_off_text": "",
                 "ui": 1
+            },
+            {
+                "key": "field_activate_employee_cpt",
+                "label": "Activeer Medewerkers",
+                "name": "activate_employee_cpt",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "allow_in_bindings": 0,
+                "ui_on_text": "",
+                "ui_off_text": "",
+                "ui": 1
             }
         ],
         "location": [
@@ -1549,9 +1481,118 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": false,
+        "active": true,
         "description": "",
         "show_in_rest": 1,
+        "display_title": ""
+    },
+    {
+        "key": "group_69b129a8b845c",
+        "title": "Medewerker",
+        "fields": [
+            {
+                "key": "field_69b129a9f5365",
+                "label": "Naam",
+                "name": "employee_name",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_69b129c2f5366",
+                "label": "E-mail",
+                "name": "employee_email",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_69b129cef5367",
+                "label": "Telefoonnummer",
+                "name": "employee_phone",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_69b129e9f5368",
+                "label": "Linkedin",
+                "name": "employee_linkedin",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "medewerkers"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0,
         "display_title": ""
     }
 ]
