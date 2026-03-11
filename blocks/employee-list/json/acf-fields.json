@@ -1,0 +1,220 @@
+[
+    {
+        "key": "group_employee_list",
+        "title": "Block: Employee List",
+        "fields": [
+            {
+                "key": "field_medewerkers_slider_remove_padding",
+                "label": "Ruimte onder sectie verwijderen",
+                "name": "rm_pb",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "Schakel in om de ruimte onder het blok te verwijderen",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "allow_in_bindings": 0,
+                "ui_on_text": "",
+                "ui_off_text": "",
+                "ui": 1
+            },
+            {
+                "key": "field_medewerkers_title",
+                "label": "Titel",
+                "name": "title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_medewerkers_colors",
+                "label": "Kleuren",
+                "name": "colors",
+                "aria-label": "",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "table",
+                "sub_fields": [
+                    {
+                        "key": "field_medewerkers_bg_color",
+                        "label": "Achtergrondkleur sectie",
+                        "name": "bg_color",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "white": "Geen",
+                            "primary": "Primair",
+                            "secondary": "Secundair",
+                            "background": "Achtergrond"
+                        },
+                        "default_value": "background",
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
+                    },
+                    {
+                        "key": "field_medewerkers_title_color",
+                        "label": "Titel kleur",
+                        "name": "title_color",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "dark": "Donkere tekst",
+                            "light": "Lichte tekst",
+                            "accent": "Accent kleur tekst"
+                        },
+                        "default_value": "dark",
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
+                    }
+                ]
+            },
+            {
+                "key": "field_medewerkers_department",
+                "label": "Afdeling filter",
+                "name": "department",
+                "aria-label": "",
+                "type": "taxonomy",
+                "instructions": "Kies een afdeling om alleen die groep medewerkers te tonen (laat leeg om alle afdelingen te tonen).",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "afdeling",
+                "field_type": "select",
+                "allow_null": 1,
+                "add_term": 0,
+                "load_terms": 0,
+                "return_format": "id",
+                "multiple": 0,
+                "choices": {}
+            },
+            {
+                "key": "field_medewerkers_card_style",
+                "label": "Kaart stijl",
+                "name": "card_style",
+                "aria-label": "",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "table",
+                "sub_fields": [
+                    {
+                        "key": "field_medewerkers_card_bg",
+                        "label": "Achtergrondkleur kaarten",
+                        "name": "card_bg_color",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "white": "Wit",
+                            "primary": "Primair",
+                            "secondary": "Secundair",
+                            "background": "Achtergrond"
+                        },
+                        "default_value": "primary",
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf/employee-list"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0,
+        "display_title": ""
+    }
+]
