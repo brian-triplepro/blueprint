@@ -419,52 +419,7 @@ if ( function_exists('get_field')) {
     }
 }
 
-add_filter('site_transient_update_themes', function ($transient) {
-    if (empty($transient->checked)) return $transient;
-
-    $theme_slug = 'blueprint';
-    $theme = wp_get_theme($theme_slug);
-
-    $github_css_url = 'https://raw.githubusercontent.com/brian-triplepro/' . $theme_slug . '/main/style.css';
-   
-
-    $response = wp_remote_get($github_css_url);
-
-    if (is_wp_error($response)) return $transient;
-
-    $remote_css = wp_remote_retrieve_body($response);
-
-    if (preg_match('/Version:\s*([0-9.]+)/i', $remote_css, $matches)) {
-      $remote_version = trim($matches[1]);
-
-      $zip_url = 'https://github.com/brian-triplepro/' . $theme_slug . '/archive/refs/tags/' . $remote_version . '.zip';
-
-      if (version_compare($theme->get('Version'), $remote_version, '<')) {
-            $transient->response[$theme_slug] = [
-                'theme'       => $theme_slug,
-                'new_version' => $remote_version,
-                'url'         => 'https://github.com/brian-triplepro/' . $theme_slug, 
-                'package'     => $zip_url,
-            ];
-        }
-    }
-
-    return $transient;
-});
-
-add_filter('auto_update_theme', function ($should_update, $item) {
-
-    $theme_slug = 'blueprint';
-    $slug = $item->slug ?? $item->theme ?? null;
-
-    if ($slug === $theme_slug) {
-        return true; 
-    }
-
-    return $should_update;
-
-}, 10, 2);
-
+include('updater.php'); 
 
 if ( function_exists( 'acf_add_local_field_group' ) ) {
     add_filter( 'acf/settings/load_json', function( $paths ) {
