@@ -9,7 +9,7 @@
     }
   }
 
-  $remove_bottom_padding = get_field( 'remove_bottom_padding' );
+  $remove_bottom_padding = get_field( 'rm_pb' );
 
   $title = get_field( 'title' );
   $intro_text = get_field( 'intro_text' );
@@ -20,7 +20,7 @@
   $text_color = $colors['text_color'] ?? 'dark';
 
   $card_colors = get_field( 'card_colors' ) ?: array();
-  $card_background_color = $card_colors['card_background_color'] ?? 'secondary';
+  $card_background_color = $card_colors['card_bg_color'] ?? 'secondary';
   $card_text_color = $card_colors['card_text_color'] ?? 'dark';
 
   $settings = get_field( 'settings' ) ?: array();
