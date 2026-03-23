@@ -115,7 +115,17 @@ if ( function_exists( 'acf_add_local_field_group' ) ) {
                 }
             }
         }
-    }, 20 );
+    }, 5 ); 
+
+    add_action( 'admin_init', function() {
+        if ( isset( $_GET['acf_clear'] ) && current_user_can( 'manage_options' ) ) {
+            delete_transient( 'acf_groups' );
+            delete_transient( 'acf_fields' );
+            wp_cache_flush();
+            wp_redirect( remove_query_arg( 'acf_clear' ) );
+            exit;
+        }
+    } );
 }
 
 
@@ -161,6 +171,7 @@ function blueprint_get_theme_vars_css() {
     $secondary = '#d1efee';
     $background = '#fcf6f1';
     $accent = '#e6f972';
+    $tertiary = '#01313d80';
     $text_light = '#ffffff';
     $text_dark = '#01313d';
     $footer_bg = '#01313d';
@@ -183,6 +194,7 @@ function blueprint_get_theme_vars_css() {
         if ( is_array( $colors ) ) {
             if ( ! empty( $colors['primary'] ) ) $primary = '#' . ltrim( $colors['primary'], '#' );
             if ( ! empty( $colors['secondary'] ) ) $secondary = '#' . ltrim( $colors['secondary'], '#' );
+            if ( ! empty( $colors['tertiary'] ) ) $tertiary = '#' . ltrim( $colors['tertiary'], '#' );
             if ( ! empty( $colors['background'] ) ) $background = '#' . ltrim( $colors['background'], '#' );
             if ( ! empty( $colors['accent'] ) ) $accent = '#' . ltrim( $colors['accent'], '#' );
             if ( ! empty( $colors['light_font'] ) ) $text_light = '#' . ltrim( $colors['light_font'], '#' );
@@ -230,6 +242,7 @@ function blueprint_get_theme_vars_css() {
             --color-secondary: {$secondary};
             --color-background: {$background};
             --color-accent: {$accent};
+            --color-tertiary: {$tertiary};
             --color-text-light: {$text_light};
             --color-text-dark: {$text_dark};
             --color-footer-bg: {$footer_bg};
