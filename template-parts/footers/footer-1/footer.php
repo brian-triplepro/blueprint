@@ -2,9 +2,11 @@
 if ( function_exists( 'get_field' ) ) {
     $address = get_field( 'address_details', 'option' ) ?: array();
     $contact = get_field( 'contact_details', 'option' ) ?: array();
+    $footer_opts = get_field( 'footer', 'option' ) ?: array();
 } else {
     $address = array();
     $contact = array();
+    $footer_opts = array();
 }
 
 $company = ! empty( $address['companyname'] ) ? $address['companyname'] : '';
@@ -17,13 +19,26 @@ $city = ! empty( $address['city'] ) ? $address['city'] : '';
 $phone = ! empty( $contact['phone_number'] ) ? $contact['phone_number'] : '';
 $whatsapp = ! empty( $contact['whatsapp'] ) ? $contact['whatsapp'] : '';
 $email = ! empty( $contact['emailadres'] ) ? $contact['emailadres'] : '';
+
+$footer_logo = ! empty( $footer_opts['footer_logo'] ) ? $footer_opts['footer_logo'] : null;
 ?>
     </main>
         <footer class="site-footer">
             <div class="container">
                 <div class="footer-top">
                     <div class="footer-brand">
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="footer-logo"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></a>
+                        <?php if ( ! empty( $footer_logo['url'] ) ) : ?>
+                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="footer-logo">
+                                <img src="<?php echo esc_url( $footer_logo['url'] ); ?>" 
+                                     alt="<?php echo esc_attr( $footer_logo['alt'] ?: get_bloginfo( 'name' ) ); ?>" 
+                                     width="<?php echo esc_attr( $footer_logo['width'] ); ?>" 
+                                     height="<?php echo esc_attr( $footer_logo['height'] ); ?>" />
+                            </a>
+                        <?php else : ?>
+                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="footer-logo">
+                                <?php echo esc_html( get_bloginfo( 'name' ) ); ?>
+                            </a>
+                        <?php endif; ?>
 
                         <?php
                         $social = function_exists( 'get_field' ) ? ( get_field( 'social_media_links', 'option' ) ?: array() ) : array();
