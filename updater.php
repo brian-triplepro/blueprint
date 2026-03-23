@@ -11,7 +11,7 @@ add_filter('site_transient_update_themes', function ($transient) {
     $cache_key = 'blueprint_github_update_check';
     $cached = get_transient($cache_key);
     
-    if ($cached !== false) {
+    if ($cached !== false && !empty($cached)) {
         if (!empty($cached['new_version']) && version_compare($current_version, $cached['new_version'], '<')) {
             $transient->response[$theme_slug] = $cached;
         }
@@ -30,7 +30,6 @@ add_filter('site_transient_update_themes', function ($transient) {
     ]);
 
     if (is_wp_error($response)) {
-        // Cache empty result to avoid hammering GitHub
         set_transient($cache_key, [], HOUR_IN_SECONDS);
         return $transient;
     }
@@ -56,7 +55,7 @@ add_filter('site_transient_update_themes', function ($transient) {
         }
     }
     
-    // Fallback to zipball_url (better than archive link)
+    // Fallback to zipball_url
     if (empty($package_url) && !empty($release_data['zipball_url'])) {
         $package_url = $release_data['zipball_url'];
     }
@@ -73,7 +72,6 @@ add_filter('site_transient_update_themes', function ($transient) {
         'package'     => $package_url,
     ];
 
-    // Cache for 12 hours
     set_transient($cache_key, $update_data, 12 * HOUR_IN_SECONDS);
 
     if (version_compare($current_version, $remote_version, '<')) {
@@ -83,18 +81,20 @@ add_filter('site_transient_update_themes', function ($transient) {
     return $transient;
 });
 
+// Auto-update control
 add_filter('auto_update_theme', function ($should_update, $item) {
     $theme_slug = 'blueprint';
     $slug = $item->slug ?? $item->theme ?? null;
 
-    if ($slug === $theme_slug) {
-        return true; 
+    if ($slug !== $theme_slug) {
+        return $should_update;
     }
 
-    return $should_update;
+    // Check setting (defaults to disabled for safety)
+    return get_option('blueprint_auto_update', false);
 }, 10, 2);
 
-// Fix GitHub archive folder structure (e.g., blueprint-0.3/ -> blueprint/)
+// Fix GitHub archive folder structure (blueprint-0.3/ -> blueprint/)
 add_filter('upgrader_source_selection', function ($source, $remote_source, $upgrader, $hook_extra) {
     if (!isset($hook_extra['theme']) || $hook_extra['theme'] !== 'blueprint') {
         return $source;
@@ -102,16 +102,13 @@ add_filter('upgrader_source_selection', function ($source, $remote_source, $upgr
 
     global $wp_filesystem;
     
-    // Check if folder name needs fixing
     $desired_name = 'blueprint';
     $source_name = basename($source);
     
-    // If folder is already named correctly, do nothing
     if ($source_name === $desired_name) {
         return $source;
     }
     
-    // Rename the folder
     $new_source = trailingslashit(dirname($source)) . $desired_name . '/';
     
     if ($wp_filesystem->move($source, $new_source, true)) {
@@ -121,9 +118,52 @@ add_filter('upgrader_source_selection', function ($source, $remote_source, $upgr
     return $source;
 }, 10, 4);
 
-// Clear update cache when checking for updates manually
+// Clear cache when checking for updates
 add_action('load-update-core.php', function() {
     delete_transient('blueprint_github_update_check');
+});
+
+add_action('load-themes.php', function() {
+    delete_transient('blueprint_github_update_check');
+});
+
+// Admin notice with enable/disable link
+add_action('admin_notices', function() {
+    $screen = get_current_screen();
+    if ($screen->id !== 'themes') {
+        return;
+    }
+    
+    if (!current_user_can('update_themes')) {
+        return;
+    }
+    
+    // Handle toggle action
+    if (isset($_GET['blueprint_auto_update'])) {
+        check_admin_referer('blueprint-auto-update');
+        $action = $_GET['blueprint_auto_update'];
+        
+        if ($action === 'enable') {
+            update_option('blueprint_auto_update', true);
+            echo '<div class="notice notice-success is-dismissible"><p><strong>Blueprint:</strong> Automatische updates ingeschakeld</p></div>';
+        } elseif ($action === 'disable') {
+            update_option('blueprint_auto_update', false);
+            echo '<div class="notice notice-success is-dismissible"><p><strong>Blueprint:</strong> Automatische updates uitgeschakeld</p></div>';
+        }
+        return;
+    }
+    
+    $auto_update_enabled = get_option('blueprint_auto_update', false);
+    
+    if ($auto_update_enabled) {
+        $url = wp_nonce_url(add_query_arg('blueprint_auto_update', 'disable'), 'blueprint-auto-update');
+        $message = 'Automatische updates zijn <strong>ingeschakeld</strong>. <a href="' . esc_url($url) . '">Uitschakelen</a>';
+    } else {
+        $url = wp_nonce_url(add_query_arg('blueprint_auto_update', 'enable'), 'blueprint-auto-update');
+        $message = 'Automatische updates zijn <strong>uitgeschakeld</strong>. <a href="' . esc_url($url) . '">Inschakelen</a>';
+    }
+    
+    echo '<div class="notice notice-info"><p><strong>Blueprint Theme:</strong> ' . $message . '</p></div>';
 });
 
 ?>
