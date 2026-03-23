@@ -125,7 +125,7 @@
                     {
                         "key": "field_69c13d739643f",
                         "label": "Tertiaire kleur",
-                        "name": "_tertiary",
+                        "name": "tertiary",
                         "aria-label": "",
                         "type": "color_picker",
                         "instructions": "",
@@ -136,7 +136,7 @@
                             "class": "",
                             "id": ""
                         },
-                        "default_value": "#01313d",
+                        "default_value": "rgba(233, 233, 233, 0.5)",
                         "enable_opacity": 1,
                         "return_format": "string",
                         "allow_in_bindings": 0,
