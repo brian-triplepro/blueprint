@@ -58,6 +58,7 @@
                             "white": "Geen",
                             "primary": "Primair",
                             "secondary": "Secundair",
+                            "tertiary": "Tertiair",
                             "background": "Achtergrond"
                         },
                         "default_value": "background",
@@ -234,7 +235,8 @@
                         },
                         "choices": {
                             "primary": "Primair",
-                            "secondary": "Secundair"
+                            "secondary": "Secundair",
+                            "tertiary": "Tertiair"
                         },
                         "default_value": false,
                         "return_format": "value",
@@ -293,6 +295,7 @@
                         "choices": {
                             "primary": "Primair",
                             "secondary": "Secundair",
+                            "tertiary": "Tertiair",
                             "accent": "Accent",
                             "background": "Achtergrond",
                             "white": "Wit"

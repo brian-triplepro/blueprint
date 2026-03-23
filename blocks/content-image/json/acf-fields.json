@@ -58,6 +58,7 @@
                             "white": "Geen",
                             "primary": "Primair",
                             "secondary": "Secundair",
+                            "tertiary": "Tertiair",
                             "background": "Achtergrond"
                         },
                         "default_value": "background",

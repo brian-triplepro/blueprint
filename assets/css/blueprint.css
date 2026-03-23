@@ -696,6 +696,9 @@ body.single {
 .bg-secondary {
   background-color: var(--color-secondary);
 }
+.bg-tertiary {
+  background-color: var(--color-tertiary);
+}
 .bg-white {
   background-color: #fff;
 }

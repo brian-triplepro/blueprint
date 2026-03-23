@@ -173,8 +173,9 @@
                         "choices": {
                             "primary": "Primair",
                             "secondary": "Secundair",
+                            "tertiary": "Tertiair",
                             "background": "Standaard achtergrond preset",
-                            "white": "Transparant"
+                            "white": "Wit"
                         },
                         "default_value": false,
                         "return_format": "value",
@@ -204,6 +205,7 @@
                         "choices": {
                             "primary": "Primair",
                             "secondary": "Secundair",
+                            "tertiary": "Tertiair",
                             "background": "Standaard achtergrond preset"
                         },
                         "default_value": false,
