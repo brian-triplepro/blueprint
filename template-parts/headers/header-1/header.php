@@ -42,10 +42,16 @@
       </nav>
 
       <div class="header-actions">
-        <?php if ( ! empty( $header_opts['cta_text'] ) && ! empty( $header_opts['cta_url'] ) ) : ?>
-          <a href="<?php echo esc_url( $header_opts['cta_url'] ); ?>" class="secondary-button"><?php echo esc_html( $header_opts['cta_text'] ); ?></a>
-        <?php else : ?>
-          <a href="#" class="btn accent">knop →</a>
+        <?php 
+        $cta_button = ! empty( $header_opts['menu_cta_button_1'] ) ? $header_opts['menu_cta_button_1'] : null;
+        if ( ! empty( $cta_button['url'] ) && ! empty( $cta_button['title'] ) ) : 
+          $target = ! empty( $cta_button['target'] ) ? $cta_button['target'] : '_self';
+        ?>
+          <a href="<?php echo esc_url( $cta_button['url'] ); ?>" 
+             target="<?php echo esc_attr( $target ); ?>"
+             class="btn accent">
+            <?php echo esc_html( $cta_button['title'] ); ?>
+          </a>
         <?php endif; ?>
 
           <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-mega-menu" aria-label="<?php esc_attr_e( 'Open menu', 'blueprint' ); ?>">
