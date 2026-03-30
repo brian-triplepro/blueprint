@@ -49,7 +49,7 @@
         ?>
           <a href="<?php echo esc_url( $cta_button['url'] ); ?>" 
              target="<?php echo esc_attr( $target ); ?>"
-             class="btn accent">
+             class="btn accent hidden md:inline-block">
             <?php echo esc_html( $cta_button['title'] ); ?>
           </a>
         <?php endif; ?>
@@ -115,6 +115,17 @@
             <li><a class="email" href="mailto:<?php echo esc_attr( $email ); ?>"><i class="fa-sharp fa-solid fa-envelope" aria-hidden="true"></i><span class="reg-text"><?php echo esc_html( $email ); ?></span></a></li>
           <?php endif; ?>
         </ul>
+
+        <?php 
+        if ( ! empty( $cta_button['url'] ) && ! empty( $cta_button['title'] ) ) : 
+          $target = ! empty( $cta_button['target'] ) ? $cta_button['target'] : '_self';
+        ?>
+          <a href="<?php echo esc_url( $cta_button['url'] ); ?>" 
+             target="<?php echo esc_attr( $target ); ?>"
+             class="btn accent block mt-4 text-center">
+            <?php echo esc_html( $cta_button['title'] ); ?>
+          </a>
+        <?php endif; ?>
       </div>
 
     </div>
