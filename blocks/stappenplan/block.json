@@ -1,0 +1,27 @@
+{
+    "name": "acf/stappenplan",
+    "title": "Stappenplan",
+    "description": "Stappenplan met getallerde stappen",
+    "category": "blueprint-blocks",
+    "icon": "screenoptions",
+    
+    "acf": {
+        "blockVersion": 3,
+        "renderTemplate": "render.php",
+        "autoInlineEditing": true
+    },
+    
+    "supports": {
+        "align": true
+    },
+
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "is_preview": true,
+                "preview_image": "./images/preview.png"
+            }
+        }
+    }
+}
