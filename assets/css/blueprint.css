@@ -144,6 +144,8 @@ body.single {
 .site-header.site-header--scrolled {
   position: fixed;
   top: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 .site-header.site-header--scrolled .inner-header {
   background-color: var(--color-primary);
@@ -250,6 +252,8 @@ body.single {
 /* Mobile mega menu */
 @media (max-width: 900px) {
   .site-header {
+    padding-left: 20px;
+    padding-right: 20px;
     /* place brand left and actions on the right */
     /* restore reasonable CTA size on mobile */
     /* fullscreen mobile menu (dark variant) */

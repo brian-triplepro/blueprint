@@ -162,6 +162,8 @@ body.single {
   &.site-header--scrolled {
     position: fixed;
     top: 0;
+    padding-left: 0;
+    padding-right: 0;
 
     .inner-header {
       background-color: var(--color-primary);
@@ -273,6 +275,9 @@ body.single {
 /* Mobile mega menu */
 @media (max-width: 900px) {
   .site-header {
+    padding-left: 20px;
+    padding-right: 20px;
+
     .main-navigation {
       display: none;
     }
