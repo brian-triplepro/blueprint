@@ -12,33 +12,19 @@
   // Load ACF field-values and assign defaults.
   $title = get_field( 'title' );
 
-  // fetch medewerkers posts instead of options repeater
-  $employees = get_posts( array(
-      'post_type'      => 'medewerkers',
-      'posts_per_page' => -1,
-      'orderby'        => 'menu_order title',
-      'order'          => 'ASC',
-  ) );
+  // fetch medewerkers from options repeater
+  $repeater = get_field( 'medewerkers', 'option' ) ?: array();
 
   $team_members = array();
-  if ( ! empty( $employees ) ) {
-      foreach ( $employees as $emp ) {
-          $image_id = get_post_thumbnail_id( $emp->ID );
-          // fallback to title if custom name not set
-          $name = get_field( 'employee_name', $emp->ID );
-          if ( ! $name ) {
-              $name = get_the_title( $emp );
-          }
-
-          $team_members[] = array(
-              'image'    => $image_id,
-              'name'     => $name,
-              'email'    => get_field( 'employee_email', $emp->ID ),
-              'phone'    => get_field( 'employee_phone', $emp->ID ),
-              'linkedin' => get_field( 'employee_linkedin', $emp->ID ),
-              'url'      => get_permalink( $emp->ID ),
-          );
-      }
+  foreach ( $repeater as $row ) {
+      $team_members[] = array(
+          'image'    => $row['employee_thumbnail']['id'] ?? null,
+          'name'     => $row['employee_name'] ?? '',
+          'function' => $row['employee_function'] ?? '',
+          'email'    => $row['employee_email'] ?? '',
+          'phone'    => $row['employee_phone'] ?? '',
+          'linkedin' => $row['employee_linkedin'] ?? '',
+      );
   }
 
   $colors = get_field( 'colors' ) ?: array();
@@ -93,10 +79,10 @@
           <?php foreach ( $team_members as $member ) :
             $image_id = $member['image'] ?? null;
             $name = $member['name'] ?? '';
+            $function = $member['function'] ?? '';
             $email = $member['email'] ?? '';
             $phone = $member['phone'] ?? '';
             $linkedin = $member['linkedin'] ?? '';
-            $profile_url = $member['url'] ?? '';
           ?>
             <div class="swiper-slide">
               <article class="team-member bg-<?php echo esc_attr( $card_background_color ); ?> text-<?php echo esc_attr( $card_text_color ); ?> rounded-[30px] overflow-hidden shadow-md  hover:shadow-lg relative mx-auto">
@@ -109,6 +95,9 @@
                 <?php if ( $name ) : ?>
                   <div class="member-name absolute inset-x-0 bottom-0 text-lg font-semibold text-white text-center py-5 px-6 bg-gradient-to-t from-black/85 via-black/60 to-transparent z-10">
                     <?php echo esc_html( $name ); ?>
+                    <?php if ( $function ) : ?>
+                      <div class="member-function text-sm font-normal opacity-80"><?php echo esc_html( $function ); ?></div>
+                    <?php endif; ?>
 
                     <?php if ( $email || $phone || $linkedin ) : ?>
                       <div class="member-icons flex justify-center gap-3 mt-2">

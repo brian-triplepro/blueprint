@@ -11,58 +11,26 @@
     
   // Load ACF field-values and assign defaults.
   $title = get_field( 'title' );
+  $general = get_field( 'general', 'option' ) ?: array();
+  $border_radius_img = isset( $general['border_radius_img'] ) ? intval( $general['border_radius_img'] ) : 30;
+  $img_shape = get_field( 'img_shape' ) ?: 'default';
+  $img_radius_style = $img_shape === 'circle' ? 'border-radius: 50%' : 'border-radius: ' . $border_radius_img . 'px';
 
-  // fetch medewerkers posts and group by afdeling taxonomy
-  $department = get_field( 'department' );
-  $query_args = array(
-      'post_type'      => 'medewerkers',
-      'posts_per_page' => -1,
-      'orderby'        => 'menu_order title',
-      'order'          => 'ASC',
-  );
-  if ( $department ) {
-      $query_args['tax_query'] = array(
-          array(
-              'taxonomy' => 'afdeling',
-              'field'    => 'term_id',
-              'terms'    => $department,
-          ),
-      );
-  }
-  $employees = get_posts( $query_args );
+  // fetch medewerkers from options repeater and group by department
+  $department_filter = get_field( 'department' );
+  $repeater = get_field( 'medewerkers', 'option' ) ?: array();
 
   $grouped = array();
-  if ( ! empty( $employees ) ) {
-      foreach ( $employees as $emp ) {
-          $image_id = get_post_thumbnail_id( $emp->ID );
-
-          $custom_name = get_field( 'employee_name', $emp->ID );
-          $title_text = $custom_name ? $custom_name : get_the_title( $emp );
-          $role = '';
-          if ( strpos( $title_text, '-' ) !== false ) {
-              list( $name_part, $role_part ) = array_map( 'trim', explode( '-', $title_text, 2 ) );
-              $name = $name_part;
-              $role = $role_part;
-          } else {
-              $name = $title_text;
-          }
-
-          $terms = get_the_terms( $emp->ID, 'afdeling' );
-          $dept_name = '';
-          $dept_slug = '';
-          if ( $terms && ! is_wp_error( $terms ) ) {
-              $dept_slug = $terms[0]->slug;
-              $dept_name = $terms[0]->name;
-          }
-
-          $grouped[ $dept_name ][] = array(
-              'image'    => $image_id,
-              'name'     => $name,
-              'role'     => $role,
-              'dept_slug'=> $dept_slug,
-              'url'      => get_permalink( $emp->ID ),
-          );
+  foreach ( $repeater as $row ) {
+      $dept = $row['employee_department'] ?? '';
+      if ( $department_filter && $dept !== $department_filter ) {
+          continue;
       }
+      $grouped[ $dept ][] = array(
+          'image'    => $row['employee_thumbnail']['id'] ?? null,
+          'name'     => $row['employee_name'] ?? '',
+          'role'     => $row['employee_function'] ?? '',
+      );
   }
 
   $colors = get_field( 'colors' ) ?: array();
@@ -89,14 +57,14 @@
 <section class="<?= esc_attr( $section_classes ); ?>">
   <div class="container">
      <?php if ( $title ) : ?>
-          <h2 class="text-2xl leading-tight !mb-[50px] text-center  text-<?php echo esc_attr( $title_color ); ?>"><?php echo wp_kses_post( $title ); ?></h2>
+          <h2 class="text-2xl leading-tight !mb-[50px] text-center text-<?php echo esc_attr( $title_color ); ?>"><?php echo wp_kses_post( $title ); ?></h2>
       <?php endif; ?>
     <?php if ( ! empty( $grouped ) ) : ?>
 
       <?php foreach ( $grouped as $dept => $members ) :
             $heading = $dept !== '' ? $dept : __( 'Overige', 'blueprint' );
       ?>
-        <h3 class="text-xl font-semibold text-center !mb-[40px]"><?php echo esc_html( $heading ); ?></h3>
+        <h3 class="text-xl font-semibold text-center !mt-[50px] !mb-[30px]"><?php echo esc_html( $heading ); ?></h3>
         <div class="employee-grid flex flex-wrap justify-center gap-8">
           <?php foreach ( $members as $member ) :
             $image_id = $member['image'] ?? null;
@@ -105,7 +73,7 @@
           ?>
             <div class="employee-card text-center">
               <?php $bg_slug = $card_background_color ? $card_background_color : 'background'; ?>
-            <div class="employee-photo w-[140px] h-[140px] rounded-full overflow-hidden mx-auto bg-<?php echo esc_attr( $bg_slug ); ?> flex items-center justify-center">
+            <div class="employee-photo w-[140px] h-[140px] overflow-hidden mx-auto bg-<?php echo esc_attr( $bg_slug ); ?> flex items-center justify-center" style="<?php echo esc_attr( $img_radius_style ); ?>">
                 <?php if ( $image_id ) : ?>
                   <?php echo wp_get_attachment_image( $image_id, 'medium', false, array( 'loading' => 'lazy', 'class'=>'w-full h-full object-cover' ) ); ?>
                 <?php endif; ?>
