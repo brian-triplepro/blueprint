@@ -38,7 +38,23 @@ if ( function_exists( 'acf_add_options_page' ) ) {
             'menu_title' => __( 'Blueprint', 'blueprint' ),
             'menu_slug'  => 'blueprint',
             'capability' => 'manage_options',
-            'redirect'   => false,
+            'redirect'   => true,
+        ) );
+
+        acf_add_options_sub_page( array(
+            'page_title'  => __( 'Instellingen', 'blueprint' ),
+            'menu_title'  => __( 'Instellingen', 'blueprint' ),
+            'menu_slug'   => 'blueprint-instellingen',
+            'parent_slug' => 'blueprint',
+            'capability'  => 'manage_options',
+        ) );
+
+        acf_add_options_sub_page( array(
+            'page_title'  => __( 'Repeaters', 'blueprint' ),
+            'menu_title'  => __( 'Repeaters', 'blueprint' ),
+            'menu_slug'   => 'blueprint-repeaters',
+            'parent_slug' => 'blueprint',
+            'capability'  => 'manage_options',
         ) );
     } );
 }
@@ -427,11 +443,6 @@ if ( function_exists('get_field')) {
     }
 }
 
-if ( function_exists('get_field')) { 
-    if ( get_field('activate_employee_cpt', 'option') ) {
-        require_once get_template_directory() . '/inc/medewerkers-cpt.php';
-    }
-}
 
 include('updater.php'); 
 
