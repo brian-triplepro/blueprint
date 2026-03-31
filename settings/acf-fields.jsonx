@@ -1367,266 +1367,6 @@
                 ]
             },
             {
-                "key": "field_6981e43fbd991",
-                "label": "Geavanceerd",
-                "name": "",
-                "aria-label": "",
-                "type": "tab",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "placement": "left",
-                "endpoint": 0,
-                "selected": 0
-            },
-            {
-                "key": "field_6981e47ac7a31",
-                "label": "Activeer Cases",
-                "name": "activate_cases_cpt",
-                "aria-label": "",
-                "type": "true_false",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "message": "",
-                "default_value": 0,
-                "allow_in_bindings": 0,
-                "ui_on_text": "",
-                "ui_off_text": "",
-                "ui": 1
-            }
-        ],
-        "location": [
-            [
-                {
-                    "param": "options_page",
-                    "operator": "==",
-                    "value": "blueprint-instellingen"
-                }
-            ]
-        ],
-        "menu_order": 0,
-        "position": "normal",
-        "style": "default",
-        "label_placement": "top",
-        "instruction_placement": "label",
-        "hide_on_screen": "",
-        "active": true,
-        "description": "",
-        "show_in_rest": 1,
-        "display_title": ""
-    },
-    {
-        "key": "group_69b129a8b845c",
-        "title": "Medewerker",
-        "fields": [
-            {
-                "key": "field_69b129a9f5365",
-                "label": "Naam",
-                "name": "employee_name",
-                "aria-label": "",
-                "type": "text",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "maxlength": "",
-                "allow_in_bindings": 0,
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
-            },
-            {
-                "key": "field_69b129c2f5366",
-                "label": "E-mail",
-                "name": "employee_email",
-                "aria-label": "",
-                "type": "text",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "maxlength": "",
-                "allow_in_bindings": 0,
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
-            },
-            {
-                "key": "field_69b129cef5367",
-                "label": "Telefoonnummer",
-                "name": "employee_phone",
-                "aria-label": "",
-                "type": "text",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "maxlength": "",
-                "allow_in_bindings": 0,
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
-            },
-            {
-                "key": "field_69b129e9f5368",
-                "label": "Linkedin",
-                "name": "employee_linkedin",
-                "aria-label": "",
-                "type": "text",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "maxlength": "",
-                "allow_in_bindings": 0,
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
-            }
-        ],
-        "location": [
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "medewerkers"
-                }
-            ]
-        ],
-        "menu_order": 0,
-        "position": "normal",
-        "style": "default",
-        "label_placement": "top",
-        "instruction_placement": "label",
-        "hide_on_screen": "",
-        "active": true,
-        "description": "",
-        "show_in_rest": 0,
-        "display_title": ""
-    },
-    {
-        "key": "group_blueprint_repeaters",
-        "title": "Blueprint Repeaters",
-        "fields": [
-            {
-                "key": "field_logoslider_tab",
-                "label": "Logoslider",
-                "name": "",
-                "aria-label": "",
-                "type": "tab",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "placement": "left",
-                "endpoint": 0,
-                "selected": 0
-            },
-            {
-                "key": "field_logoslider_repeater",
-                "label": "Logoslider",
-                "name": "logoslider",
-                "aria-label": "",
-                "type": "repeater",
-                "instructions": "Beheer hier de logo's voor de logoslider.",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "layout": "table",
-                "pagination": 0,
-                "min": 0,
-                "max": 0,
-                "collapsed": "",
-                "button_label": "Nieuw logo",
-                "rows_per_page": 20,
-                "sub_fields": [
-                    {
-                        "key": "field_logoslider_logo",
-                        "label": "Logo",
-                        "name": "logo",
-                        "aria-label": "",
-                        "type": "image",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "return_format": "array",
-                        "library": "all",
-                        "min_width": "",
-                        "min_height": "",
-                        "min_size": "",
-                        "max_width": "",
-                        "max_height": "",
-                        "max_size": "",
-                        "mime_types": "",
-                        "allow_in_bindings": 0,
-                        "preview_size": "medium",
-                        "parent_repeater": "field_logoslider_repeater"
-                    },
-                    {
-                        "key": "field_logoslider_link",
-                        "label": "Link",
-                        "name": "link",
-                        "aria-label": "",
-                        "type": "link",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "return_format": "array",
-                        "allow_in_bindings": 0,
-                        "parent_repeater": "field_logoslider_repeater"
-                    }
-                ]
-            },
-            {
                 "key": "field_reviews_tab",
                 "label": "Reviews",
                 "name": "",
@@ -1786,8 +1526,8 @@
                 ]
             },
             {
-                "key": "field_medewerkers_tab",
-                "label": "Medewerkers",
+                "key": "field_6981e43fbd991",
+                "label": "Geavanceerd",
                 "name": "",
                 "aria-label": "",
                 "type": "tab",
@@ -1804,12 +1544,12 @@
                 "selected": 0
             },
             {
-                "key": "field_medewerkers_repeater",
-                "label": "Medewerkers",
-                "name": "medewerkers",
+                "key": "field_6981e47ac7a31",
+                "label": "Activeer Cases",
+                "name": "activate_cases_cpt",
                 "aria-label": "",
-                "type": "repeater",
-                "instructions": "Beheer hier de medewerkers die in blokken gebruikt kunnen worden.",
+                "type": "true_false",
+                "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -1817,174 +1557,33 @@
                     "class": "",
                     "id": ""
                 },
-                "layout": "row",
-                "pagination": 0,
-                "min": 0,
-                "max": 0,
-                "collapsed": "",
-                "button_label": "Nieuwe medewerker",
-                "rows_per_page": 20,
-                "sub_fields": [
-                    {
-                        "key": "field_medewerker_foto",
-                        "label": "Foto",
-                        "name": "employee_thumbnail",
-                        "aria-label": "",
-                        "type": "image",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "return_format": "array",
-                        "library": "all",
-                        "min_width": "",
-                        "min_height": "",
-                        "min_size": "",
-                        "max_width": "",
-                        "max_height": "",
-                        "max_size": "",
-                        "mime_types": "",
-                        "allow_in_bindings": 0,
-                        "preview_size": "medium",
-                        "parent_repeater": "field_medewerkers_repeater"
-                    },
-                    {
-                        "key": "field_medewerker_naam",
-                        "label": "Naam",
-                        "name": "employee_name",
-                        "aria-label": "",
-                        "type": "text",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "maxlength": "",
-                        "allow_in_bindings": 0,
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": "",
-                        "parent_repeater": "field_medewerkers_repeater"
-                    },
-                    {
-                        "key": "field_medewerker_email",
-                        "label": "E-mail",
-                        "name": "employee_email",
-                        "aria-label": "",
-                        "type": "text",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "maxlength": "",
-                        "allow_in_bindings": 0,
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": "",
-                        "parent_repeater": "field_medewerkers_repeater"
-                    },
-                    {
-                        "key": "field_medewerker_phone",
-                        "label": "Telefoonnummer",
-                        "name": "employee_phone",
-                        "aria-label": "",
-                        "type": "text",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "maxlength": "",
-                        "allow_in_bindings": 0,
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": "",
-                        "parent_repeater": "field_medewerkers_repeater"
-                    },
-                    {
-                        "key": "field_medewerker_linkedin",
-                        "label": "Linkedin",
-                        "name": "employee_linkedin",
-                        "aria-label": "",
-                        "type": "text",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "maxlength": "",
-                        "allow_in_bindings": 0,
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": "",
-                        "parent_repeater": "field_medewerkers_repeater"
-                    },
-                    {
-                        "key": "field_medewerker_functie",
-                        "label": "Functie",
-                        "name": "employee_function",
-                        "aria-label": "",
-                        "type": "text",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "maxlength": "",
-                        "allow_in_bindings": 0,
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": "",
-                        "parent_repeater": "field_medewerkers_repeater"
-                    },
-                    {
-                        "key": "field_medewerker_afdeling",
-                        "label": "Afdeling",
-                        "name": "employee_department",
-                        "aria-label": "",
-                        "type": "text",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "maxlength": "",
-                        "allow_in_bindings": 0,
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": "",
-                        "parent_repeater": "field_medewerkers_repeater"
-                    }
-                ]
+                "message": "",
+                "default_value": 0,
+                "allow_in_bindings": 0,
+                "ui_on_text": "",
+                "ui_off_text": "",
+                "ui": 1
+            },
+            {
+                "key": "field_activate_employee_cpt",
+                "label": "Activeer Medewerkers",
+                "name": "activate_employee_cpt",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "allow_in_bindings": 0,
+                "ui_on_text": "",
+                "ui_off_text": "",
+                "ui": 1
             }
         ],
         "location": [
@@ -1992,7 +1591,7 @@
                 {
                     "param": "options_page",
                     "operator": "==",
-                    "value": "blueprint-repeaters"
+                    "value": "blueprint"
                 }
             ]
         ],
