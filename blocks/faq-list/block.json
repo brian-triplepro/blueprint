@@ -1,0 +1,27 @@
+{
+    "name": "acf/faq-list",
+    "title": "FAQ lijst",
+    "description": "Accordion met veelgestelde vragen",
+    "category": "blueprint-blocks",
+    "icon": "editor-help",
+
+    "acf": {
+        "blockVersion": 3,
+        "renderTemplate": "render.php",
+        "autoInlineEditing": true
+    },
+
+    "supports": {
+        "align": true
+    },
+
+    "example": {
+        "attributes": {
+            "mode": "preview",
+            "data": {
+                "is_preview": true,
+                "preview_image": "./images/preview.png"
+            }
+        }
+    }
+}
