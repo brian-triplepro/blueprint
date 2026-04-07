@@ -122,6 +122,39 @@
                         "placeholder": "",
                         "create_options": 0,
                         "save_options": 0
+                    },
+                    {
+                        "key": "field_medewerkers_arrow_color",
+                        "label": "Pijltjes kleur",
+                        "name": "arrow_color",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "text-dark": "Donkere pijltjes",
+                            "text-light": "Lichte pijltjes",
+                            "primary": "Primair",
+                            "secondary": "Secundair",
+                            "tertiary": "Tertiair",
+                            "accent": "Accent kleur"
+                        },
+                        "default_value": "text-dark",
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
                     }
                 ]
             },
