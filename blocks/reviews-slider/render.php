@@ -62,8 +62,8 @@
             $company = $item['author_company'] ?? '';
             $link = $item['link'] ?? '';
           ?>
-            <div class="swiper-slide">
-              <article class="bg-[var(--reviews-card-bg)] p-8 rounded-[18px] w-full box-border flex flex-col justify-between" >
+            <div class="swiper-slide h-auto">
+              <article class="bg-[var(--reviews-card-bg)] p-8 rounded-[18px] w-full box-border flex flex-col justify-between h-full" >
                 <div class="w-full">
                   <div class="flex flex-wrap items-center gap-[20px] mb-4">
                     <?php if ( $logo_choice ) : ?>
@@ -152,6 +152,7 @@
       loop: true,
       slidesPerView: 1,
       spaceBetween: 20,
+      autoHeight: false,
       navigation: {
         nextEl: container ? container.querySelector('.review-btn-next') : null,
         prevEl: container ? container.querySelector('.review-btn-prev') : null,
