@@ -27,6 +27,12 @@ $step_number_text_color = $step_styling['step_number_text_color'] ?? 'white';
 
 $steps = get_field( 'steps' ) ?: array();
 
+$cta = get_field( 'cta_1' ) ?: array();
+$button_title = $cta['title'] ?? 'Lees meer';
+$button_style = $cta['cta_style'] ?? 'accent';
+$button_url = isset( $cta['cta_link'] ) && is_array( $cta['cta_link'] ) ? ( $cta['cta_link']['url'] ?? '' ) : '';
+$button_target = isset( $cta['cta_link'] ) && is_array( $cta['cta_link'] ) ? ( $cta['cta_link']['target'] ?? '' ) : '';
+
 // Convert border-radius value
 $border_radius_value = $step_number_border_radius === '50' ? '50%' : $step_number_border_radius . 'px';
 
@@ -121,6 +127,14 @@ $section_style = '--steps-border-radius: ' . esc_attr( $border_radius_value ) . 
             </div>
           <?php endforeach; ?>
         </div>
+
+        <?php if ( $button_url ) : ?>
+          <div class="steps-cta mt-12 text-center">
+            <a href="<?php echo esc_url( $button_url ); ?>" class="btn <?php echo esc_attr( $button_style ); ?>"<?php echo $button_target ? ' target="' . esc_attr( $button_target ) . '"' : ''; ?>>
+              <?php echo esc_html( $button_title ); ?>
+            </a>
+          </div>
+        <?php endif; ?>
       </div>
     <?php endif; ?>
   </div>
