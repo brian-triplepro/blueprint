@@ -33,6 +33,8 @@
     $text = $content['text'] ?? '';
 
     $item_style = get_field('item_style') ?: array();
+    $layout = $item_style['layout'] ?? 'grid';
+    $columns = $item_style['columns'] ?? '4';
     $cta_style = $item_style['cta_style'] ?? 'primary';
     $item_bg_color = $item_style['bg_color'] ?? 'primary';
     $item_text_color = $item_style['text_color'] ?? 'light';
@@ -65,8 +67,18 @@
         <?php endif; ?>
 
         <?php if ( $items ) : ?>
-            <div class="grid grid-cols-[repeat(auto-fit,minmax(270px,1fr))] gap-[30px]">
+            <?php
+              $grid_classes = 'grid gap-[30px] ';
+              if ( $layout === 'list' ) {
+                  $grid_classes .= 'grid-cols-1';
+              } else {
+                  $col_map = array( '2' => 'md:grid-cols-2', '3' => 'md:grid-cols-2 lg:grid-cols-3', '4' => 'md:grid-cols-2 lg:grid-cols-4' );
+                  $grid_classes .= 'grid-cols-1 ' . ( $col_map[ $columns ] ?? 'md:grid-cols-2 lg:grid-cols-3' );
+              }
+            ?>
+            <div class="<?php echo esc_attr( $grid_classes ); ?>">
                 <?php foreach ( $items as $item ) :
+                    $image_id = $item['image'] ?? null;
                     $icon_field = $item['icon'] ?? '';
 
                     $icon_type  = '';
@@ -107,8 +119,16 @@
                     $cta_url = is_array($cta_link) ? ($cta_link['url'] ?? '') : '';
                     $cta_text = is_array($cta_link) ? ($cta_link['title'] ?? '') : '';
                     $cta_target = is_array($cta_link) ? ($cta_link['target'] ?: '_self') : '_self';
+
+                    $is_list = $layout === 'list';
                 ?>
-                    <div class="item bg-<?php echo esc_attr( $item_bg_color ); ?> text-<?php echo esc_attr( $item_text_color ); ?> p-[30px] rounded-[var(--border-radius-block)]">
+                    <div class="item bg-<?php echo esc_attr( $item_bg_color ); ?> text-<?php echo esc_attr( $item_text_color ); ?> overflow-hidden rounded-[var(--border-radius-block)] <?php echo $is_list && $image_id ? 'flex flex-col md:flex-row' : ''; ?> <?php echo ! $image_id ? 'p-[30px]' : ''; ?>">
+                        <?php if ( $image_id ) : ?>
+                            <div class="item-image <?php echo $is_list ? 'md:w-1/3 md:flex-shrink-0 relative' : ''; ?>">
+                                <?php echo wp_get_attachment_image( $image_id, 'medium_large', false, array( 'class' => 'w-full object-cover ' . ( $is_list ? 'md:absolute md:inset-0 md:h-full' : 'aspect-[16/9]' ), 'loading' => 'lazy' ) ); ?>
+                            </div>
+                        <?php endif; ?>
+                        <div class="<?php echo $image_id ? 'p-[30px]' : ''; ?> <?php echo $is_list ? 'flex flex-col justify-center' : ''; ?>">
                         <?php if ( $icon_value ) : ?>
                             <div class="item-icon mb-[20px] inline-flex items-center rounded-[10px] justify-center w-[50px] h-[50px] bg-<?php echo esc_attr( $item_icon_bg_color ); ?> text-<?php echo esc_attr( $item_icon_text_color ); ?>">
                                 <?php if ( $icon_type === 'media_library' || $icon_type === 'url' || $icon_type === 'svg_file' ) : ?>
@@ -127,7 +147,7 @@
                             <?php endif; ?>
 
                             <?php if ( $item_excerpt ) : ?>
-                                <div class="item-excerpt mb-[20px]">
+                                <div class="item-excerpt mb-[20px] [&_ul]:list-disc [&_ul]:py-5 [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5">
                                     <?php echo wp_kses_post( $item_excerpt ); ?>
                                 </div>
                             <?php endif; ?>
@@ -137,6 +157,7 @@
                                     <?php echo esc_html( $cta_text ); ?>
                                 </a>
                             <?php endif; ?>
+                        </div>
                         </div>
                     </div>
                 <?php endforeach; ?>

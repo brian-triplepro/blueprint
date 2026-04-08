@@ -181,6 +181,73 @@
                 "layout": "table",
                 "sub_fields": [
                     {
+                        "key": "field_69986ae32d0a0",
+                        "label": "Layout",
+                        "name": "layout",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "grid": "Grid (naast elkaar)",
+                            "list": "Lijst (onder elkaar)"
+                        },
+                        "default_value": "grid",
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
+                    },
+                    {
+                        "key": "field_69986ae32d0a1",
+                        "label": "Kolommen",
+                        "name": "columns",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "Aantal blokken naast elkaar (alleen bij grid layout)",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_69986ae32d0a0",
+                                    "operator": "==",
+                                    "value": "grid"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "2": "2 kolommen",
+                            "3": "3 kolommen",
+                            "4": "4 kolommen"
+                        },
+                        "default_value": "4",
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "allow_in_bindings": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "create_options": 0,
+                        "save_options": 0
+                    },
+                    {
                         "key": "field_69986ae32d0e5",
                         "label": "CTA stijl",
                         "name": "cta_style",
@@ -360,6 +427,33 @@
                 "rows_per_page": 20,
                 "sub_fields": [
                     {
+                        "key": "field_69986ae339900",
+                        "label": "Afbeelding",
+                        "name": "image",
+                        "aria-label": "",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "id",
+                        "preview_size": "medium",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": "",
+                        "allow_in_bindings": 0,
+                        "parent_repeater": "field_69986ae31bb7c"
+                    },
+                    {
                         "key": "field_69986ae339947",
                         "label": "Icon",
                         "name": "icon",
@@ -439,7 +533,7 @@
                                     "class": "",
                                     "id": ""
                                 },
-                                "toolbar": "basic",
+                                "toolbar": "full",
                                 "tabs": "all",
                                 "media_upload": 1,
                                 "default_value": "",
