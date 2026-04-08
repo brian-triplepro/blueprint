@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "/Users/brian/Development/blueprint"
+    ],
+    "allow": [
+      "Bash(npm run:*)"
+    ]
+  }
+}

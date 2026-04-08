@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "build:scss": "sass assets/scss/blueprint.scss:assets/css/compiled.css --no-source-map --no-charset",
+    "build:css": "postcss assets/css/input.css -o assets/css/blueprint.css",
+    "build": "npm run build:scss && npm run build:css",
+    "watch:scss": "sass --watch assets/scss/blueprint.scss:assets/css/compiled.css --no-source-map --no-charset",
+    "watch:css": "postcss assets/css/input.css -o assets/css/blueprint.css --watch",
+    "watch": "concurrently \"npm run watch:scss\" \"npm run watch:css\""
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.2",
+    "concurrently": "^9.1.2",
+    "postcss": "^8.5.9",
+    "postcss-cli": "^11.0.1",
+    "sass": "^1.89.0",
+    "tailwindcss": "^4.2.2"
+  }
+}

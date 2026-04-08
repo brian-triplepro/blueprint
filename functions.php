@@ -62,7 +62,7 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 function blueprint_enqueue_scripts() {
 
     blueprint_enqueue_google_fonts();
-    wp_enqueue_script( 'tailwind', 'https://cdn.tailwindcss.com/', array(), '', false );
+    // wp_enqueue_script( 'tailwind', 'https://cdn.tailwindcss.com/', array(), '', false );
     wp_enqueue_style( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css', array(), '10.0.0');
     wp_enqueue_style( 'blueprint', get_template_directory_uri() . '/assets/css/blueprint.css', array(), '', 'all' );
     // attach dynamic CSS variables to the main stylesheet so changes from options take effect on the front end
@@ -84,7 +84,7 @@ function blueprint_enqueue_block_editor_assets() {
     }
 
     wp_enqueue_style( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css', array(), '10.0.0' );
-    wp_enqueue_script( 'tailwind', 'https://cdn.tailwindcss.com/', array(), '3.4.17', false );
+    // wp_enqueue_script( 'tailwind', 'https://cdn.tailwindcss.com/', array(), '3.4.17', false );
     wp_enqueue_script( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js', array(), '10.0.0', true );
     
     wp_enqueue_style( 'dashicons' );
@@ -201,6 +201,10 @@ function blueprint_get_theme_vars_css() {
     $h2_size = 28;
     $h3_family = 'system-ui, sans-serif';
     $h3_size = 24;
+
+    $border_radius_img = 0;
+    $border_radius_btn = 20;
+    $border_radius_block = 0;
 
     if ( function_exists( 'get_field' ) ) {
         $cw = intval( get_field( 'content_width', 'option' ) );
