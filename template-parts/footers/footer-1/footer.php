@@ -121,13 +121,13 @@ $footer_logo = ! empty( $footer_opts['footer_logo'] ) ? $footer_opts['footer_log
 
                     <div class="footer-column">
                         <h4 class="footer-heading text-accent"><?php esc_html_e( 'Contact', 'blueprint' ); ?></h4>
-                        <address class="footer-contact footer-<?php echo esc_attr( $footer_text_color ); ?>"> 
-                        <?php if ( $company ) : ?><div class="company"><?php echo esc_html( $company ); ?></div><?php endif; ?>
-                        <?php if ( $street || $house_number ) : ?><div class="street"><?php echo esc_html( trim( $street . ' ' . $house_number ) ); ?></div><?php endif; ?>
-                        <?php if ( $zipcode || $city ) : ?><div class="city"><?php echo esc_html( trim( $zipcode . ' ' . $city ) ); ?></div><?php endif; ?>
-                        <?php if ( $phone ) : ?><div class="phone"><a href="tel:<?php echo esc_attr( preg_replace( '/\D+/', '', $phone ) ); ?>" class="footer-<?php echo esc_attr( $footer_text_color ); ?>"><?php echo esc_html( $phone ); ?></a></div><?php endif; ?>
-                        <?php if ( $whatsapp ) : ?><div class="whatsapp"><a target="_blank" rel="noopener" href="https://wa.me/<?php echo esc_attr( preg_replace( '/\D+/', '', $whatsapp ) ); ?>" class="footer-<?php echo esc_attr( $footer_text_color ); ?>"><?php esc_html_e( 'WhatsApp', 'blueprint' ); ?></a></div><?php endif; ?>
-                        <?php if ( $email ) : ?><div class="email"><a href="mailto:<?php echo esc_attr( $email ); ?>" class="footer-<?php echo esc_attr( $footer_text_color ); ?>"><?php echo esc_html( $email ); ?></a></div><?php endif; ?>
+                        <address class="footer-contact"> 
+                            <?php if ( $company ) : ?><div class="company"><?php echo esc_html( $company ); ?></div><?php endif; ?>
+                            <?php if ( $street || $house_number ) : ?><div class="street"><?php echo esc_html( trim( $street . ' ' . $house_number ) ); ?></div><?php endif; ?>
+                            <?php if ( $zipcode || $city ) : ?><div class="city"><?php echo esc_html( trim( $zipcode . ' ' . $city ) ); ?></div><?php endif; ?>
+                            <?php if ( $phone ) : ?><div class="phone"><a href="tel:<?php echo esc_attr( preg_replace( '/\D+/', '', $phone ) ); ?>" class="footer-<?php echo esc_attr( $footer_text_color ); ?>"><?php echo esc_html( $phone ); ?></a></div><?php endif; ?>
+                            <?php if ( $whatsapp ) : ?><div class="whatsapp"><a target="_blank" rel="noopener" href="https://wa.me/<?php echo esc_attr( preg_replace( '/\D+/', '', $whatsapp ) ); ?>" class="footer-<?php echo esc_attr( $footer_text_color ); ?>"><?php esc_html_e( 'WhatsApp', 'blueprint' ); ?></a></div><?php endif; ?>
+                            <?php if ( $email ) : ?><div class="email"><a href="mailto:<?php echo esc_attr( $email ); ?>" class="footer-<?php echo esc_attr( $footer_text_color ); ?>"><?php echo esc_html( $email ); ?></a></div><?php endif; ?>
                         </address>
                     </div>
                 </div>

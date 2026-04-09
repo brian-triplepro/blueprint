@@ -59,7 +59,7 @@
              <br>
         </div>
        
-        <div>
+        <div class="contact-information">
             <?php if ( $company_name || $street || $city || $phone || $email ) : ?>
                 <div  class="mb-[50px]">
                     <?php if ( $info_title ) : ?>

@@ -48,7 +48,7 @@ if ($image_id) {
 
 ?>
 
-<section class="<?= esc_attr( $section_classes ); ?> relative overflow-hidden flex items-center">
+<section class="<?= esc_attr( $section_classes ); ?> pt-[250px] relative overflow-hidden flex items-center">
     <?php if ( $hero_type && $image_url ) : ?>
         <img class="absolute inset-0 w-full h-full" src="<?php echo esc_url($image_url); ?>" alt="" style="object-fit: cover; object-position: center;" fetchpriority="high" /> 
     <?php endif; ?>

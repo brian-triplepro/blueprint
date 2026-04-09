@@ -147,7 +147,7 @@
                             <?php endif; ?>
 
                             <?php if ( $item_excerpt ) : ?>
-                                <div class="item-excerpt mb-[20px] [&_ul]:list-disc [&_ul]:py-5 [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5">
+                                <div class="item-excerpt mb-[20px]">
                                     <?php echo wp_kses_post( $item_excerpt ); ?>
                                 </div>
                             <?php endif; ?>

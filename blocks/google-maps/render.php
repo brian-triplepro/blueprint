@@ -51,7 +51,7 @@
 ?>
 
 <section class="<?= esc_attr( $section_classes ); ?> p-0" >
-    <div class="google-maps-wrapper">
+    <div class="google-maps-wrapper flex">
         <?php if ( ! empty( $address_query ) ) : ?>
             <iframe 
                 id="map-canvas" 

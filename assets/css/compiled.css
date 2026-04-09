@@ -29,6 +29,18 @@ img {
   border-radius: var(--border-radius-img, 0);
 }
 
+ul {
+  padding: 20px 0 20px 20px;
+}
+
+.contact-icon {
+  text-decoration: none;
+}
+
+.blueprint-contact-block .contact-information a {
+  color: inherit;
+}
+
 body.page,
 body.single {
   font-family: var(--font-body);
@@ -91,6 +103,9 @@ body.single {
 .site-header .site-branding {
   font-weight: 600;
   font-size: 1.5rem;
+  text-decoration: none;
+}
+.site-header .site-branding a {
   text-decoration: none;
 }
 .site-header .site-branding .custom-logo-link img,
@@ -543,7 +558,7 @@ body.single {
   padding: 0;
 }
 .site-footer .footer-column .footer-menu li {
-  margin-bottom: 14px;
+  margin-bottom: 8px;
 }
 .site-footer .footer-column .footer-menu li a {
   color: var(--color-footer-text);
@@ -558,6 +573,10 @@ body.single {
 }
 .site-footer .footer-column .footer-contact {
   color: var(--color-footer-text);
+  font-style: normal;
+}
+.site-footer .footer-column .footer-contact a:hover {
+  text-decoration: underline;
 }
 .site-footer .footer-column .footer-contact .company {
   font-weight: 700;
@@ -778,4 +797,8 @@ body.single {
 }
 .wp-block-post-title {
   font-size: 2.5em;
+}
+
+.carousel-btn {
+  cursor: pointer;
 }

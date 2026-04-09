@@ -54,7 +54,7 @@
 <section class="<?= esc_attr( $section_classes ); ?>">
     <div class="container grid <?php echo esc_attr( $grid_cols ); ?> items-center justify-center gap-[30px] lg:gap-[100px]">
         <div class="max-w-[350px] <?php echo esc_attr( $image_order ); ?>">
-             <img src="<?php echo esc_url( $image_src ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>" class="w-full" />
+             <img src="<?php echo esc_url( $image_src ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>" class="w-full flex" />
         </div>
         <div class="<?php echo esc_attr( $text_order ); ?>">
             <?php if ( $title ) : ?>

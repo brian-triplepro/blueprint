@@ -42,9 +42,9 @@
                 if ( ! $question ) continue;
                 $item_id = $block_id . '-item-' . $index;
             ?>
-                <div class="faq-accordion__item border-b border-current">
+                <div class="faq-accordion__item border-b border-current first:border-t">
                     <button
-                        class="faq-accordion__trigger w-full flex items-center justify-between py-[20px] text-left font-semibold cursor-pointer"
+                        class="faq-accordion__trigger w-full flex items-center justify-between py-4.5 px-1 text-left text-lg font-semibold cursor-pointer bg-transparent border-0 outline-none"
                         type="button"
                         aria-expanded="false"
                         aria-controls="<?php echo esc_attr( $item_id ); ?>"
@@ -60,7 +60,7 @@
                         role="region"
                     >
                         <div class="overflow-hidden">
-                            <div class="pb-[20px]">
+                            <div class="pb-[20px] px-1 leading-relaxed opacity-80">
                                 <?php echo wp_kses_post( $answer ); ?>
                             </div>
                         </div>
