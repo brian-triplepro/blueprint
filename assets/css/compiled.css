@@ -107,6 +107,7 @@ body.single {
 }
 .site-header .site-branding a {
   text-decoration: none;
+  display: flex;
 }
 .site-header .site-branding .custom-logo-link img,
 .site-header .site-branding .custom-logo {
